@@ -1,12 +1,14 @@
 {
-  "name": "My Bookmarks",
+  "name": "Arrange-Me",
   "version": "1.1",
-  "description": "A browser action with a popup dump of all bookmarks, including search, add, edit and delete.",
+  "description": "A chrome plugin to automatically cluster bookmarks and place them in corresponding folders.",
   "permissions": [
-    "bookmarks"
+    "bookmarks",
+    "http://*/*",
+		"https://*/*"
   ],
   "browser_action": {
-      "default_title": "My Bookmarks",
+      "default_title": "Arrange-Me",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
   },
