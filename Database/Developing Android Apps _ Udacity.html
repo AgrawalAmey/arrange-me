@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://www.udacity.com/course/new-android-fundamentals-%2Dud851 -->
+<html class="gr__udacity_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="stndz-style"></style>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="dPIMESsCTlQqV+3gTey2OGcWMyt7JNwfvO8UdSQUyNXwTaNLKVCdQlmnAoPxYrThmK5Cx2EfV4VrBk537C0pHA==">
+      
+  <title>Developing Android Apps | Udacity</title>
+
+  <link rel="canonical" href="https://www.udacity.com/course/new-android-fundamentals--ud851">
+    <meta name="robots" content="noodp">
+  <meta name="description" content="Learn how to develop Android applications from scratch using development best practices through a hands on course led by Google instructors.">
+  <meta name="keywords" content="android">
+  <meta name="google-site-verification" content="2EIknjtmPaA5nE7j3noLXPah_x_bM2bFEHZRdqSYYMk">
+  <meta name="google-site-verification" content="ELX2btu3VElBKIdvkGj5ESBnJh_Dg9PnWjuCwVkPEkA">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="./Developing Android Apps _ Udacity_files/nr-1026.min.js.download"></script><script type="text/javascript" async="" data-id="bec" org-id="f00000000039020" domain="udacity.com" session-timeout="43200000" timeout="26784000000" src="./Developing Android Apps _ Udacity_files/conv_v3.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/js"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/linkid.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/bHt.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/5489.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/uwt.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/gtm.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/analytics.js.download"></script><script src="./Developing Android Apps _ Udacity_files/identity.js.download" async=""></script><script src="./Developing Android Apps _ Udacity_files/823398221086645" async=""></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/blueshift.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/bat.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/amplitude-3.4.0-min.gz.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/conversion_async.js.download"></script><script type="text/javascript" async="" src="./Developing Android Apps _ Udacity_files/analytics.min.js.download"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"2059d2614a","applicationID":"12625862","transactionName":"dwpcEUoOXlUHSkxbCkEXQQBLTkFRDU8=","queueTime":0,"applicationTime":102,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XQAAV1JWGwICUlNXDwcF"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+  <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true">
+  <meta name="application-name" content="Udacity">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="https://d125fmws0bore1.cloudfront.net/assets/udacity_share-46db4b8faf075a5af5a1070a7fa0ad3639783609ff45f447e4ea467fe3aa9d32.png">
+  <meta name="msvalidate.01" content="4ADB80ADF9A5138C8BE3B23EE428B306">
+  <meta name="theme-color" content="#294860">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="https://d125fmws0bore1.cloudfront.net/assets/favicon-3867f43151ecbff486335ae6a96d17d91d6169d20888131b4681d15b65e1425b.ico">
+  <link rel="icon" sizes="any" mask="" href="https://d125fmws0bore1.cloudfront.net/assets/udacity_apple_icon-b2fe0e8bc834963f1cf490fdc55bc3170b37f05374e1e4b383af1d755d1893db.png">
+  <link rel="apple-touch-icon" href="https://d125fmws0bore1.cloudfront.net/assets/udacity_apple_icon-b2fe0e8bc834963f1cf490fdc55bc3170b37f05374e1e4b383af1d755d1893db.png">
+
+  <meta property="og:description" content="Learn how to develop Android applications from scratch using development best practices through a hands on course led by Google instructors.">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/lBvoF-3vRHVY87AX6f2g1R7VU8kkSAYw4Qp8fodFkpykiThDBq4x3zzrbbfH-CpnviftCDDp_lOWzVN8bw=s0#w=640&amp;h=525">
+  <meta property="og:title" content="Developing Android Apps | Udacity">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/course/new-android-fundamentals--ud851">
+
+  <meta name="twitter:description" content="Learn how to develop Android applications from scratch using development best practices through a hands on course led by Google instructors.">
+  <meta name="twitter:image:src" content="https://lh3.googleusercontent.com/lBvoF-3vRHVY87AX6f2g1R7VU8kkSAYw4Qp8fodFkpykiThDBq4x3zzrbbfH-CpnviftCDDp_lOWzVN8bw=s0#w=640&amp;h=525">
+  <meta name="twitter:title" content="Developing Android Apps | Udacity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@udacity">
+  <meta name="twitter:creator" content="@udacity">
+
+<script type="text/javascript">
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+      analytics.load('oP3ZXzj7KM9lvyAXexoorjH0YbvawAKg');
+      analytics.page(
+        "Course Info",
+        "Course Info - ud851",
+        {"course_key":"ud851"},
+        {}
+      );
+  }}();
+</script>
+
+
+  <link rel="stylesheet" media="screen" href="./Developing Android Apps _ Udacity_files/application-bb168352b417b3a97443689cd997764600a151b5298a3e3f1a4842209d0c3292.css">
+      <script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Course","@id":"https://www.udacity.com/course/new-android-fundamentals--ud851","name":"Developing Android Apps","description":"Learn how to develop Android applications from scratch using development best practices through a hands on course led by Google instructors.","educationalOutcome":"","coursePrerequisite":["This course is intended for students with at least 1 year of programming experience in Java or another object-oriented programming language (for example: C++, Objective C or Python).   If you are new to programming, we recommend taking Android for Beginners, which we created with Google for students just like you!  Also, Udacity's Intro to Java is a helpful background if you're looking to refresh your Java skills.  You will be expected to download Android Studio in order to follow along with the instructors throughout the course. For guidance on the install process, take our How to Install Android Studio mini-course.  In addition, you should be comfortable working with code on GitHub.   Access to an Android device is helpful -- but not required -- to complete the final project."],"isAccessibleForFree":"http://schema.org/False","subjectOfStudy":["android"],"hasCourseInstance":{"@type":"CourseInstance","inLanguage":"en","instructor":[{"@type":"Person","@id":"https://www.udacity.com/instructors/dan-galpin","name":"Dan Galpin"},{"@type":"Person","@id":"https://www.udacity.com/instructors/lyla-fujiwara","name":"Lyla Fujiwara"},{"@type":"Person","@id":"https://www.udacity.com/instructors/reto-meier","name":"Reto Meier"},{"@type":"Person","@id":"https://www.udacity.com/instructors/asser-samak","name":"Asser Samak"},{"@type":"Person","@id":"https://www.udacity.com/instructors/james-williams","name":"James Williams"},{"@type":"Person","@id":"https://www.udacity.com/instructors/cezanne-camacho","name":"Cezanne Camacho"},{"@type":"Person","@id":"https://www.udacity.com/instructors/michael-lustig","name":"Michael Lustig"},{"@type":"Person","@id":"https://www.udacity.com/instructors/jocelyn-becker","name":"Jocelyn Becker"}]},"provider":{"@type":"Organization","name":"Google","url":""}}
+  </script>
+
+
+<style type="text/css"> .lessons .more + [data-readmore-toggle], .lessons .more[data-readmore]{display: block; width: 100%;}.lessons .more[data-readmore]{transition: height 100ms;overflow: hidden;}</style><style type="text/css" id="qual_style-rn"></style><style type="text/css" id="qual_style-r2"></style></head>
+<body class="page-cop ud851" data-gr-c-s-loaded="true"><header class="header header--clone header--unstick">
+  <div class="header__navbar">
+    <div class="header__navbar--toggle">
+      <a href="https://www.udacity.com/course/new-android-fundamentals--ud851#" class="nav-toggle">
+        <span class="bar bar_top"></span>
+        <span class="bar bar_mid"></span>
+        <span class="bar bar_bottom"></span>
+      </a>
+    </div>
+    <div class="header__navbar--logo">
+      <a id="ga-26ade9" title="Udacity" class="logo-link" href="https://www.udacity.com/">
+        <div class="logo-wordmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="180" height="30" viewBox="0 0 180 30" alt="Udacity">
+  <g fill="none" fill-rule="evenodd">
+    <path id="wordmark" fill="#2E3D49" d="M57.6 17.239187c0 2.546698-2.085517 4.407747-4.965517 4.407747-2.88 0-4.965517-1.86105-4.965517-4.407747V7.835994H45.68276v9.501143c0 3.330298 2.88 6.170846 6.951723 6.170846 4.071724 0 6.951724-2.938498 6.951724-6.170846V7.835994H57.6v9.403193zm16.286897-9.403193h-5.36276v15.67199h5.36276c4.468965 0 7.547586-3.03645 7.547586-7.835996 0-4.701596-3.07862-7.835994-7.547586-7.835994zm-.19862 13.71299h-3.177932V9.794994h3.17793c3.376553 0 5.76 2.252847 5.76 5.876994 0 3.917998-2.482757 5.779046-5.76 5.876996zm43.49793.29385c-3.575172 0-5.95862-2.644648-5.95862-6.170846 0-3.526197 2.482758-6.072895 5.95862-6.072895 2.78069 0 4.468966 1.5672 4.468966 1.5672l.794483-1.3713s-1.787587-1.86105-5.46207-1.86105c-4.766896 0-7.746206 3.526198-7.746206 7.738045 0 4.309797 3.07862 7.933945 7.944827 7.933945 3.773793 0 5.66069-2.5467 5.66069-2.5467l-1.092414-1.175398c-.09931-.09795-1.588965 1.959-4.568276 1.959zm14.896553-14.00684h1.986206v15.67199h-1.986207zm10.924137 1.959h4.965517v13.71299h1.986207V9.794994h4.96552v-1.959H143.0069m30.587583 0l-4.766896 7.150344-4.866207-7.150347h-2.085518l5.95862 8.717546v6.954445h1.986208v-6.954444l5.85931-8.71754m-81.434482 0l-6.157242 15.67199h1.986207l1.688276-4.5057 6.45517-1.3713 2.18483 5.876998h1.986203l-6.05793-15.67199h-2.085518zm-1.886897 9.305242l2.97931-7.248294h.099315L97.92 16.063788l-5.56138 1.07745z"></path>
+    <path id="mark" fill="#02B3E4" d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z"></path>
+  </g>
+</svg>
+
+        </div>
+</a>      <a id="ga-cd8d40" title="Udacity" href="https://www.udacity.com/">
+        <div class="logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" alt="Udacity">
+  <path id="mark" fill="#02B3E4" fill-rule="evenodd" d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z"></path>
+</svg>
+        </div>
+</a>    </div>
+    <div class="header__navbar--navigation">
+      <nav role="navigation">
+        <a id="ga-02b490" title="Explore" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Pathfinder - Explore" data-analytics-payload="{&quot;cta_message&quot;:&quot;Explore&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/pathfinder">Explore</a>
+        <a id="ga-98c761" title="Nanodegree" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Nanodegree - Nanodegree" data-analytics-payload="{&quot;cta_message&quot;:&quot;Nanodegree&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/nanodegree">Nanodegree</a>
+        <a id="ga-f57557" title="Catalog" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Catalog - Catalog" data-analytics-payload="{&quot;cta_message&quot;:&quot;Catalog&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/courses/all">Catalog</a>
+        <a id="ga-09f1d8" title="For Business" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Business - For Business" data-analytics-payload="{&quot;cta_message&quot;:&quot;For Business&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/business">For Business</a>
+        <div class="button button--navigation divider"></div>
+        <a id="ga-ecc0a2" title="Blog" target="_blank" data-show-student="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Blog - Blog" data-analytics-payload="{&quot;cta_message&quot;:&quot;Blog&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation button--student button--blog" href="http://blog.udacity.com/">Blog</a>
+        <a id="ga-df2289" title="My Classroom" data-show-student="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Classroom - My Classroom" data-analytics-payload="{&quot;cta_message&quot;:&quot;My Classroom&quot;,&quot;cta_type&quot;:&quot;button&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--primary button--student" href="https://classroom.udacity.com/">My Classroom</a>
+        <a id="ga-2fcbd6" title="Sign In" data-show-guest="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Classroom - Sign In" data-analytics-payload="{&quot;cta_message&quot;:&quot;Sign In&quot;,&quot;cta_type&quot;:&quot;button&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation button--student" href="https://auth.udacity.com/sign-in?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated">Sign In</a>
+        <a id="ga-01df7f" title="Get Started" data-show-guest="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Sign Up - Get Started" data-analytics-payload="{&quot;cta_message&quot;:&quot;Get Started&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--turquoise button--guest button--get-started" href="https://auth.udacity.com/sign-up?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated">Get Started</a>
+      </nav>
+    </div>
+  </div>
+</header>
+  <header class="header__sidenav slideout-menu" id="nav--mobile">
+  <div class="header__sidenav--logo">
+    <a id="ga-f6126f" title="Udacity" class="logo-link" href="https://www.udacity.com/">
+      <div class="logo-wordmark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="30" viewBox="0 0 180 30" alt="Udacity">
+  <g fill="none" fill-rule="evenodd">
+    <path id="wordmark" fill="#2E3D49" d="M57.6 17.239187c0 2.546698-2.085517 4.407747-4.965517 4.407747-2.88 0-4.965517-1.86105-4.965517-4.407747V7.835994H45.68276v9.501143c0 3.330298 2.88 6.170846 6.951723 6.170846 4.071724 0 6.951724-2.938498 6.951724-6.170846V7.835994H57.6v9.403193zm16.286897-9.403193h-5.36276v15.67199h5.36276c4.468965 0 7.547586-3.03645 7.547586-7.835996 0-4.701596-3.07862-7.835994-7.547586-7.835994zm-.19862 13.71299h-3.177932V9.794994h3.17793c3.376553 0 5.76 2.252847 5.76 5.876994 0 3.917998-2.482757 5.779046-5.76 5.876996zm43.49793.29385c-3.575172 0-5.95862-2.644648-5.95862-6.170846 0-3.526197 2.482758-6.072895 5.95862-6.072895 2.78069 0 4.468966 1.5672 4.468966 1.5672l.794483-1.3713s-1.787587-1.86105-5.46207-1.86105c-4.766896 0-7.746206 3.526198-7.746206 7.738045 0 4.309797 3.07862 7.933945 7.944827 7.933945 3.773793 0 5.66069-2.5467 5.66069-2.5467l-1.092414-1.175398c-.09931-.09795-1.588965 1.959-4.568276 1.959zm14.896553-14.00684h1.986206v15.67199h-1.986207zm10.924137 1.959h4.965517v13.71299h1.986207V9.794994h4.96552v-1.959H143.0069m30.587583 0l-4.766896 7.150344-4.866207-7.150347h-2.085518l5.95862 8.717546v6.954445h1.986208v-6.954444l5.85931-8.71754m-81.434482 0l-6.157242 15.67199h1.986207l1.688276-4.5057 6.45517-1.3713 2.18483 5.876998h1.986203l-6.05793-15.67199h-2.085518zm-1.886897 9.305242l2.97931-7.248294h.099315L97.92 16.063788l-5.56138 1.07745z"></path>
+    <path id="mark" fill="#02B3E4" d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z"></path>
+  </g>
+</svg>
+
+      </div>
+</a>  </div>
+  <nav class="header__sidenav--navigation" role="navigation">
+    <ul>
+      <li>
+        <a id="ga-f78bbf" title="Explore" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Pathfinder - Explore" data-cta-message="Explore" data-cta-type="link" data-cta-destination="self" data-cta-location="HomePage" href="https://www.udacity.com/pathfinder">Explore</a>
+      </li>
+      <li>
+        <a id="ga-a16a8a" title="Nanodegree" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Nanodegree - Nanodegree" data-cta-message="Nanodegree" data-cta-type="link" data-cta-destination="self" data-cta-location="HomePage" href="https://www.udacity.com/nanodegree">Nanodegree</a>
+      </li>
+      <li>
+        <a id="ga-f5bb2e" title="Catalog" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Catalog - Catalog" data-cta-message="Catalog" data-cta-type="link" data-cta-destination="self" data-cta-location="HomePage" href="https://www.udacity.com/courses/all">Catalog</a>
+      </li>
+      <li>
+        <a id="ga-7fdb6e" title="For Business" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Business - For Business" data-cta-message="For Business" data-cta-type="link" data-cta-destination="self" data-cta-location="HomePage" href="https://www.udacity.com/business">For Business</a>
+      </li>
+      <li class="student" data-show-student="">
+        <a id="ga-da6a84" title="Blog" target="_blank" class="white" data-show-student="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Blog - Blog" data-cta-message="Blog" data-cta-type="link" data-cta-destination="new_window" data-cta-location="HomePage" href="https://blog.udacity.com/">Blog</a>
+      </li>
+      <li class="student" data-show-student="">
+        <a id="ga-d3c96f" title="My Classroom" data-show-student="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Classroom - My Classroom" data-cta-message="My Classroom" data-cta-type="button" data-cta-destination="self" data-cta-location="HomePage" href="https://classroom.udacity.com/">My Classroom</a>
+      </li>
+      <li class="guest" data-show-guest="">
+       <a id="ga-7ff015" title="Sign In" data-show-guest="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Classroom - Sign In" data-cta-message="Sign In" data-cta-type="button" data-cta-destination="self" data-cta-location="HomePage" href="https://auth.udacity.com/sign-in?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated">Sign In</a>
+      </li>
+      <li class="guest" data-show-guest="">
+        <a id="ga-5120cb" title="Get Started" class="turquoise" data-show-guest="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Sign Up - Get Started" data-cta-message="Get Started" data-cta-type="link" data-cta-destination="self" data-cta-location="HomePage" href="https://auth.udacity.com/sign-up?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated">Get Started</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+  <div id="contain-all" class=" slideout-panel">
+    <div class="banner featured" data-eyebrow="">
+  <p>
+      <span class="brow"><span data-content-block="header/eyebrow">Proud to be #10 on the <a href="http://www.cnbc.com/2017/05/16/the-2017-cnbc-disruptor-50-list-of-companies.html">2017 CNBC Disruptor 50 List</a></span></span>
+  </p>
+  <a id="ga-110be5" class="banner--close dark" href="https://www.udacity.com/course/new-android-fundamentals--ud851#"></a>
+</div>
+
+<header class="header">
+  <div class="header__navbar">
+    <div class="header__navbar--toggle">
+      <a href="https://www.udacity.com/course/new-android-fundamentals--ud851#" class="nav-toggle">
+        <span class="bar bar_top"></span>
+        <span class="bar bar_mid"></span>
+        <span class="bar bar_bottom"></span>
+      </a>
+    </div>
+    <div class="header__navbar--logo">
+      <a id="ga-26ade9" title="Udacity" class="logo-link" href="https://www.udacity.com/">
+        <div class="logo-wordmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="180" height="30" viewBox="0 0 180 30" alt="Udacity">
+  <g fill="none" fill-rule="evenodd">
+    <path id="wordmark" fill="#2E3D49" d="M57.6 17.239187c0 2.546698-2.085517 4.407747-4.965517 4.407747-2.88 0-4.965517-1.86105-4.965517-4.407747V7.835994H45.68276v9.501143c0 3.330298 2.88 6.170846 6.951723 6.170846 4.071724 0 6.951724-2.938498 6.951724-6.170846V7.835994H57.6v9.403193zm16.286897-9.403193h-5.36276v15.67199h5.36276c4.468965 0 7.547586-3.03645 7.547586-7.835996 0-4.701596-3.07862-7.835994-7.547586-7.835994zm-.19862 13.71299h-3.177932V9.794994h3.17793c3.376553 0 5.76 2.252847 5.76 5.876994 0 3.917998-2.482757 5.779046-5.76 5.876996zm43.49793.29385c-3.575172 0-5.95862-2.644648-5.95862-6.170846 0-3.526197 2.482758-6.072895 5.95862-6.072895 2.78069 0 4.468966 1.5672 4.468966 1.5672l.794483-1.3713s-1.787587-1.86105-5.46207-1.86105c-4.766896 0-7.746206 3.526198-7.746206 7.738045 0 4.309797 3.07862 7.933945 7.944827 7.933945 3.773793 0 5.66069-2.5467 5.66069-2.5467l-1.092414-1.175398c-.09931-.09795-1.588965 1.959-4.568276 1.959zm14.896553-14.00684h1.986206v15.67199h-1.986207zm10.924137 1.959h4.965517v13.71299h1.986207V9.794994h4.96552v-1.959H143.0069m30.587583 0l-4.766896 7.150344-4.866207-7.150347h-2.085518l5.95862 8.717546v6.954445h1.986208v-6.954444l5.85931-8.71754m-81.434482 0l-6.157242 15.67199h1.986207l1.688276-4.5057 6.45517-1.3713 2.18483 5.876998h1.986203l-6.05793-15.67199h-2.085518zm-1.886897 9.305242l2.97931-7.248294h.099315L97.92 16.063788l-5.56138 1.07745z"></path>
+    <path id="mark" fill="#02B3E4" d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z"></path>
+  </g>
+</svg>
+
+        </div>
+</a>      <a id="ga-cd8d40" title="Udacity" href="https://www.udacity.com/">
+        <div class="logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" alt="Udacity">
+  <path id="mark" fill="#02B3E4" fill-rule="evenodd" d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z"></path>
+</svg>
+        </div>
+</a>    </div>
+    <div class="header__navbar--navigation">
+      <nav role="navigation">
+        <a id="ga-02b490" title="Explore" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Pathfinder - Explore" data-analytics-payload="{&quot;cta_message&quot;:&quot;Explore&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/pathfinder">Explore</a>
+        <a id="ga-98c761" title="Nanodegree" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Nanodegree - Nanodegree" data-analytics-payload="{&quot;cta_message&quot;:&quot;Nanodegree&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/nanodegree">Nanodegree</a>
+        <a id="ga-f57557" title="Catalog" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Catalog - Catalog" data-analytics-payload="{&quot;cta_message&quot;:&quot;Catalog&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/courses/all">Catalog</a>
+        <a id="ga-09f1d8" title="For Business" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Business - For Business" data-analytics-payload="{&quot;cta_message&quot;:&quot;For Business&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation" href="https://www.udacity.com/business">For Business</a>
+        <div class="button button--navigation divider"></div>
+        <a id="ga-ecc0a2" title="Blog" target="_blank" data-show-student="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Blog - Blog" data-analytics-payload="{&quot;cta_message&quot;:&quot;Blog&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation button--student button--blog" href="http://blog.udacity.com/">Blog</a>
+        <a id="ga-df2289" title="My Classroom" data-show-student="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Classroom - My Classroom" data-analytics-payload="{&quot;cta_message&quot;:&quot;My Classroom&quot;,&quot;cta_type&quot;:&quot;button&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--primary button--student" href="https://classroom.udacity.com/">My Classroom</a>
+        <a id="ga-2fcbd6" title="Sign In" data-show-guest="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Classroom - Sign In" data-analytics-payload="{&quot;cta_message&quot;:&quot;Sign In&quot;,&quot;cta_type&quot;:&quot;button&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--navigation button--student" href="https://auth.udacity.com/sign-in?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated">Sign In</a>
+        <a id="ga-01df7f" title="Get Started" data-show-guest="" data-analytics-name="Navbar Link Clicked" data-analytics-category="Navbar Link" data-analytics-label="Navbar Link - Sign Up - Get Started" data-analytics-payload="{&quot;cta_message&quot;:&quot;Get Started&quot;,&quot;cta_type&quot;:&quot;link&quot;,&quot;cta_destination&quot;:&quot;self&quot;,&quot;cta_location&quot;:&quot;HomePage&quot;}" class="button button--turquoise button--guest button--get-started" href="https://auth.udacity.com/sign-up?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated">Get Started</a>
+      </nav>
+    </div>
+  </div>
+</header>
+    
+
+
+
+
+
+
+  <section class="hero-bg">
+    <div class="col"></div>
+    <div class="col nd nd801"></div>
+  </section>
+  <section class="hero">
+    <div class="contain bg-gray">
+      <div class="hero__course">
+        <h6 class="hero__course--type bar--bottom bar--green">Free Course</h6>
+        <h1 class="hero__course--title">Developing Android Apps</h1>
+          <div class="hero__course--affiliate">
+            <h1 class="inline h1 mb-0 slate">by</h1>
+              <img alt="Google" class="hero__course--icon" src="./Developing Android Apps _ Udacity_files/logo-color-google-1c8cf8f.svg">
+          </div>
+        <p class="hero__course--subtitle lead">NEW Android Fundamentals</p>
+          <a class="button--primary lg" title="Start Free Course" data-course-key="ud851">Start Free Course</a>
+      </div>
+        <div class="hero__nanodegree nd801">
+          <a href="https://www.udacity.com/degrees/android-developer-nanodegree-by-google--nd801" class="hero__nanodegree__link" data-analytics-name="Nanodegree CTA Clicked" ,="" data-analytics-category="Nanodegree CTA" data-analytics-label="Nanodegree CTA - Learn More - nd801" data-analytics-type="CTA" data-analytics-payload="{ &quot;cta_message&quot;: &quot;Learn More&quot;, &quot;cta_type&quot;: &quot;button&quot;, &quot;cta_destination&quot;: &quot;new_window&quot;, &quot;cta_location&quot;: &quot;COP&quot;, &quot;destination_nd_key&quot;: &quot;nd801&quot;, &quot;page_course_key&quot;: &quot;ud851&quot;, &quot;ranking&quot;: &quot;0&quot;, &quot;pmi&quot;: &quot;0&quot; }">
+            <div class="hero__nanodegree__contain">
+              <div class="hero__nanodegree__content">
+                <h6 class="hero__nanodegree--type bar--bottom bar--white">Nanodegree Program</h6>
+                <h2 class="h1 hero__nanodegree--title">Android Developer</h2>
+                  <div class="hero__nanodegree--affiliate">
+                    <span class="h1">by</span>
+                      <img alt="Google" class="hero__nanodegree--affiliate--icon" src="./Developing Android Apps _ Udacity_files/logo-white-google-5caff84.svg">
+                  </div>
+                <p class="hero__nanodegree--subtitle lead mb-0">Become an Android Developer</p>
+                  <div class="nd-rating">
+                    <div id="reviews" data-node-key="nd801"></div>
+                    <div class="nd-stars" style="display: inline-block;">
+                      <div data-reviews-stars="" style="width: 95%;"></div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="hero__nanodegree__cta">
+              <p class="small mb-0">Accelerate your career with the credential that fast-tracks you to job success.<span class="icon__arrows--fade"></span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+  </section>
+
+  <section class="information">
+    <div class="contain">
+      <div class="information__summary">
+        <h2>About this Course</h2>
+        <p>As the first course in the <a href="https://www.udacity.com/course/nd801" target="_blank">Android Developer Nanodegree</a>,  Developing Android Apps is the foundation of our advanced Android curriculum. This course blends theory and practice to help you build great apps the right way. In this course, you'll work with instructors step-by-step to build a cloud-connected Android app, and learn best practices of mobile development, and Android development in particular.</p>
+
+<h4><a href="https://play.google.com/store/apps/details?id=com.udacity.android">Download Udacity's Android app</a> to keep learning wherever you go!</h4>
+
+         <a class="hidden-sm-up mb-2 text-only" target="_blank" href="https://player.vimeo.com/video/180948560?autoplay=1?color=00adef&amp;title=0&amp;byline=0&amp;portrait=0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Play Trailer Video - ud851" data-analytics-payload="{ &quot;cta_message&quot;: &quot;Play Trailer&quot;, &quot;cta_type&quot;: &quot;link&quot;, &quot;cta_destination&quot;: &quot;modal&quot;, &quot;cta_location&quot;: &quot;COP&quot;, &quot;destination_course_key&quot;: &quot;ud851&quot;, &quot;page_course_key&quot;: &quot;ud851&quot;}">
+            <span class="icon-play"></span> Play Trailer
+          </a>
+          <a class="hidden-xs-down mb-2 text-only" href="https://www.udacity.com/course/new-android-fundamentals--ud851" data-remodal-target="cop-trailer" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Play Trailer Video - ud851" data-analytics-payload="{ &quot;cta_message&quot;: &quot;Play Trailer&quot;, &quot;cta_type&quot;: &quot;link&quot;, &quot;cta_destination&quot;: &quot;modal&quot;, &quot;cta_location&quot;: &quot;COP&quot;, &quot;destination_course_key&quot;: &quot;ud851&quot;, &quot;page_course_key&quot;: &quot;ud851&quot;}">
+            <span class="icon-play"></span> Play Trailer
+          </a>
+          
+
+      </div>
+      <div class="information__details">
+        <div class="section--top">
+          <div class="col">
+            <h6>Course Cost</h6>
+            <h5>Free</h5>
+          </div>
+          <div class="col">
+            <h6>Timeline</h6>
+            <h5>Approx. 60 hours</h5>
+          </div>
+        </div>
+        <div class="section--top">
+          <div class="col">
+            <h6>Skill Level</h6>
+            <h5>
+              <div class="icon-middle intermediate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24" alt="Udacity">
+  <g id="current" fill="none" fill-rule="evenodd">
+    <g id="icon-skill-level">
+      <path id="advanced" fill="#DBE2E8" d="M22 5h3v15h-3z"></path>
+      <path id="intermediate" fill="#DBE2E8" d="M17 9h3v11h-3z"></path>
+      <path id="beginner" fill="#02B3E4" d="M12 13h3v7h-3z"></path>
+    </g>
+  </g>
+</svg>
+              </div>
+              Intermediate
+            </h5>
+          </div>
+        </div>
+        <div class="section--bottom">
+          <h6>Included in Course</h6>
+          <ul>
+            <li><p><img class="icon-middle" src="./Developing Android Apps _ Udacity_files/icon-course-01-3edf6b45629a2e8f1b490e1fb1516899e98b3b30db721466e83b1a1c16e237b1.svg" alt="Icon course 01 3edf6b45629a2e8f1b490e1fb1516899e98b3b30db721466e83b1a1c16e237b1"> Rich Learning Content</p></li>
+            <li><p><img class="icon-middle" src="./Developing Android Apps _ Udacity_files/icon-course-04-2edd94a12ef9e5f0ebe04f6c9f6ae2c89e5efba5fd0b703c60f65837f8b54430.svg" alt="Icon course 04 2edd94a12ef9e5f0ebe04f6c9f6ae2c89e5efba5fd0b703c60f65837f8b54430"> Interactive Quizzes</p></li>
+            <li><p><img class="icon-middle" src="./Developing Android Apps _ Udacity_files/icon-course-02-2d90171a3a467a7d4613c7c615f15093d7402c66f2cf9a5ab4bcf11a4958aa33.svg" alt="Icon course 02 2d90171a3a467a7d4613c7c615f15093d7402c66f2cf9a5ab4bcf11a4958aa33"> Taught by Industry Pros</p></li>
+            <li><p><img class="icon-middle" src="./Developing Android Apps _ Udacity_files/icon-course-05-237542f88ede3178ac4845d4bebf431ddd36d9c3c35aedfbd92e148c1c7361c6.svg" alt="Icon course 05 237542f88ede3178ac4845d4bebf431ddd36d9c3c35aedfbd92e148c1c7361c6"> Self-Paced Learning</p></li>
+            <li><p><img class="icon-middle" src="./Developing Android Apps _ Udacity_files/icon-course-03-142f0532acf4fa030d680f5cb3babed8007e9ac853d0a3bf731fa30a7869db3a.svg" alt="Icon course 03 142f0532acf4fa030d680f5cb3babed8007e9ac853d0a3bf731fa30a7869db3a"> Student Support Community</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nd-information bg-gray">
+    <div class="contain">
+      <h2>Join the Path to Greatness</h2>
+        <div class="nd-information__intro">
+          <p>This free course is your first step towards a new career with the Android Developer Nanodegree Program.</p>
+        </div>
+      <div class="col nd-information__course">
+        <div class="card card__cop">
+          <h6 class="bar--left bar--green mb-half">Free Course</h6>
+          <h4 class="card__cop--title">Developing Android Apps</h4>
+            <div class="card__cop--affiliate h4">by
+                <img alt="Google" class="card__cop--icon" src="./Developing Android Apps _ Udacity_files/logo-color-google-1c8cf8f.svg">
+            </div>
+          <p class="small mb-0">Enhance your skill set and boost your hirability through innovative, independent learning.</p>
+        </div>
+      </div>
+      <div class="col nd-information__arrow">
+        <div class="nd-information__arrow--content">
+          <img class="nd-information__arrow--icon" src="./Developing Android Apps _ Udacity_files/icon-steps-54aa753742d05d598baf005f2bb1b5bb6339a7d544b84089a1eee6acd5a8543d.svg" alt="Icon steps 54aa753742d05d598baf005f2bb1b5bb6339a7d544b84089a1eee6acd5a8543d">
+        </div>
+      </div>
+      <div class="col nd-information__ndop">
+        <div class="card card__ndop">
+            <a href="https://www.udacity.com/degrees/android-developer-nanodegree-by-google--nd801" class="card__ndop--link" data-analytics-name="Course CTA Clicked" ,="" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Nanodegree Info - nd801" data-analytics-type="CTA" data-analytics-payload="{ &quot;cta_message&quot;: &quot;Learn More&quot;, &quot;cta_type&quot;: &quot;button&quot;, &quot;cta_destination&quot;: &quot;new_window&quot;, &quot;cta_location&quot;: &quot;COP&quot;, &quot;destination_course_key&quot;: &quot;ud851&quot;, &quot;page_course_key&quot;: &quot;ud851&quot;, &quot;ranking&quot;: &quot;0&quot;, &quot;pmi&quot;: &quot;0&quot; }">
+              <h6 class="bar--left mb-half">Nanodegree Program</h6>
+              <h4 class="card__ndop--title">Android Developer</h4>
+                  <div class="card__ndop--affiliate h4">by
+                      <img alt="Google" class="card__ndop--icon" src="./Developing Android Apps _ Udacity_files/logo-color-google-1c8cf8f.svg">
+                  </div>
+              <p class="small">Accelerate your career with the credential that fast-tracks you to job success.</p>
+              <div class="button--primary sm">Learn More</div>
+            </a>
+        </div>
+        <div class="card card__ndop--layer1">&nbsp;</div>
+        <div class="card card__ndop--layer2">&nbsp;</div>
+      </div>
+    </div>
+  </section>
+
+    <section class="instructors bg-white">
+      <div class="contain">
+        <h2>Course Leads</h2>
+        <ul class="list-instructors">
+            <li class="instructor">
+              <img alt="Dan Galpin" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/dan-galpin@2x-fh48k71.jpg">
+              <h5 class="instructor--name">Dan Galpin</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="Lyla Fujiwara" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/lyla-fujiwara@2x-62dae34.jpg">
+              <h5 class="instructor--name">Lyla Fujiwara</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="Reto Meier" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/reto-meier@2x-29df43d.jpg">
+              <h5 class="instructor--name">Reto Meier</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="Asser Samak" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/asser-samak@2x-69a691f.jpg">
+              <h5 class="instructor--name">Asser Samak</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="James Williams" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/james-williams@2x-fef3b4d.jpg">
+              <h5 class="instructor--name">James Williams</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="Cezanne Camacho" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/Cezanne-Camacho.jpg">
+              <h5 class="instructor--name">Cezanne Camacho</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="Michael Lustig" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/Michael-Lustig.jpg">
+              <h5 class="instructor--name">Michael Lustig</h5>
+              <p class="instructor--title">Instructor</p>
+            </li>
+            <li class="instructor">
+              <img alt="Jocelyn Becker" class="instructor--photo" src="./Developing Android Apps _ Udacity_files/instructor-jocelyn-becker-34bcbdc.jpg">
+              <h5 class="instructor--name">Jocelyn Becker</h5>
+              <p class="instructor--title">Program Manager</p>
+            </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="lessons bg-beige text-center">
+      <h2>What You Will Learn</h2>
+      <div class="more" data-readmore="" aria-expanded="false" id="rmjs-1" style="max-height: none; height: 1007px;">
+        <div class="cards_contain">
+          <a class="card card--lesson" data-remodal-target="lesson-modal-0">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 1</h6>
+              <h4 class="mb-0">Creating Project Sunshine</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Learn how to create and run a simple Android app</li>
+                  <li>Create simple layouts for Android</li>
+                  <li>Learn about the Android Studio IDE</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-1">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 2</h6>
+              <h4 class="mb-0">Loading Data from the Internet</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Connect to the Internet and communicate with web APIs</li>
+                  <li>Learn about threading and how to make requests without slowing down your app</li>
+                  <li>Learn how to add menus to your app</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-2">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 3</h6>
+              <h4 class="mb-0">RecyclerView</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Learn about the components that convert a list of data into visual UI elements</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-3">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 4</h6>
+              <h4 class="mb-0">Intents</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Learn the difference between Explicit and Implicit Intents</li>
+                  <li>Learn how to navigate inside your apps using intents</li>
+                  <li>Learn how to create Intents that apps outside your control can respond to</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-4">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 5</h6>
+              <h4 class="mb-0">The Application Lifecycle</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Understand the phases of the Android application lifecycle</li>
+                  <li>Learn how to persist data between orientation and other changes</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-5">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 6</h6>
+              <h4 class="mb-0">Preferences</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Allow users to customize some aspects of your app</li>
+                  <li>Consider when to omit or add a preference</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-6">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 7</h6>
+              <h4 class="mb-0">Creating SQLite Databases</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Implement a SQLite database</li>
+                  <li>Make queries to and modify that database in your app</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-7">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 8</h6>
+              <h4 class="mb-0">Introduction to Content Providers</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Learn how Content Providers provide an interface to share data</li>
+                  <li>Consume data from an already existing ContentProvider</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-8">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 9</h6>
+              <h4 class="mb-0">Building a Content Provider</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Learn to build a Content Provider</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-9">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 10</h6>
+              <h4 class="mb-0">Background Tasks</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Coming soon!</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-10">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 11</h6>
+              <h4 class="mb-0">Completing the UI</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Coming soon!</li>
+              </ul>
+            </div>
+          </a>
+          
+          <a class="card card--lesson" data-remodal-target="lesson-modal-11">
+            <div class="lesson--title">
+              <h6 class="bar--left mb-half">Lesson 12</h6>
+              <h4 class="mb-0">Polishing the UI</h4>
+            </div>
+            <div class="lesson--description">
+              <ul>
+                  <li>Coming soon!</li>
+              </ul>
+            </div>
+          </a>
+          
+        </div>
+      </div><a href="https://www.udacity.com/course/new-android-fundamentals--ud851#" data-readmore-toggle="" aria-controls="rmjs-1">View All Lessons</a>
+    </section>
+
+    <section class="course-reqs" id="requirements">
+      <div class="contain">
+        <h2 class="text-center">Prerequisites and Requirements</h2>
+        <div class="course-reqs--summary">
+          <p><strong>This course is intended for students with at least 1 year of programming experience in Java or another object-oriented programming language</strong> (for example: C++, Objective C or Python). </p>
+
+<p>If you are new to programming, we recommend taking <a href="http://www.udacity.com/course/ud837" target="_blank">Android for Beginners</a>, which we created with Google for students just like you!</p>
+
+<p>Also, Udacity's <a href="http://www.udacity.com/course/cs046" target="_blank">Intro to Java</a> is a helpful background if you're looking to refresh your Java skills.</p>
+
+<p>You will be expected to download <a href="http://developer.android.com/sdk/installing/studio.html" target="_blank">Android Studio</a> in order to follow along with the instructors throughout the course. For guidance on the install process, take our <a href="http://www.udacity.com/course/ud808" target="_blank">How to Install Android Studio</a> mini-course.</p>
+
+<p>In addition, you should be comfortable working with code on <a href="http://www.github.com/" target="_blank">GitHub</a>. </p>
+
+<p>Access to an Android device is helpful -- but not required -- to complete the final project.</p>
+
+          <p class="small text-center">See the <a href="https://www.udacity.com/tech-requirements" target="_blank">Technology Requirements</a> for using Udacity.</p>
+        </div>
+      </div>
+    </section>
+
+    
+
+  <section class="module-android-path text-center">
+    <div class="contain">
+      <img alt="Android Path" class="mb-1" src="./Developing Android Apps _ Udacity_files/icon-android-path-7237685b26c1cfe69fb1547835f0770c1e20db666f489df28c16228e065e6441.svg">
+      <h2 class="white">Which learning path is right for me?</h2>
+      <p class="white large legible center">When it comes to Android, Udacity has a variety of Nanodegree programs and courses of all levels for you to choose from. Find out which courses are right for you with this quick guide.</p>
+      <a id="ga-a2523f" class="button--outline center" target="_blank" data-analytics-name="CTA Clicked" data-analytics-category="Generic CTA" data-analytics-label="Generic CTA - View Now" data-analytics-payload="{&quot;cta_message&quot;:&quot;View Now&quot;,&quot;cta_type&quot;:&quot;button&quot;,&quot;cta_destination&quot;:&quot;Android Learning Path PDF&quot;,&quot;cta_location&quot;:&quot;COP&quot;}" href="https://s3-us-west-1.amazonaws.com/udacity-content/PDFs/android_content_guide_which_learning_path_is_right_for_me.pdf">View Now</a>
+    </div>
+  </section>
+
+
+
+    <section class="course-why bg-gray">
+      <div class="contain">
+        <h2>Why Take This Course</h2>
+        <div class="why--summary">
+          <p>With over 1 billion Android devices already activated, Android represents an incredible opportunity for developers.</p>
+
+<p>As Android continues to grow beyond smartphones, it will become the brains behind invisible, ubiquitous cloud-connected computing. The skills you learn in this course will help you build awesome apps for smartphones and tablets today, and propel you towards exciting opportunities in Android's future.</p>
+
+<p>By the end of this course, you’ll build a cloud-connected Android app, and understand the tools, principles, and patterns that underlie all Android development. You’ll understand the challenges associated with developing for the mobile environment (and how to overcome them), learn how to build a great user experience for Android devices, and apply this knowledge to your own projects.</p>
+
+        </div>
+        <div class="why--details">
+          <h6>What do I get?</h6>
+          <ul class="checks">
+            <li>Instructor videos</li>
+            <li>Learn by doing exercises</li>
+            <li>Taught by industry professionals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+  <section class="featured-courses">
+    <div class="contain">
+        <h6>Related Free Courses</h6>
+        <div class="cards_contain mb-1">
+              <a id="ga-0861bd" target="_blank" class="card card--course" data-related-course="ud849" data-ranking="5" data-variation-id="CTRL" data-pmi="0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud849" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud849&quot;,&quot;course_section&quot;:&quot;related&quot;,&quot;ranking&quot;:5,&quot;variation_id&quot;:&quot;CTRL&quot;,&quot;pmi&quot;:0}" href="https://www.udacity.com/course/ux-design-for-mobile-developers--ud849">
+                <div class="course-info">
+                  <div class="course-info--category">Android</div>
+                  <h5 class="course-info--title">UX Design for Mobile Developers</h5>
+                </div>
+</a>              <a id="ga-34e853" target="_blank" class="card card--course" data-related-course="ud875C" data-ranking="2" data-variation-id="CTRL" data-pmi="0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud875C" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud875C&quot;,&quot;course_section&quot;:&quot;related&quot;,&quot;ranking&quot;:2,&quot;variation_id&quot;:&quot;CTRL&quot;,&quot;pmi&quot;:0}" href="https://www.udacity.com/course/android-auto-development--ud875C">
+                <div class="course-info">
+                  <div class="course-info--category">Android</div>
+                  <h5 class="course-info--title">Android Auto Development</h5>
+                </div>
+</a>              <a id="ga-4ae75f" target="_blank" class="card card--course" data-related-course="ud853" data-ranking="4" data-variation-id="CTRL" data-pmi="0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud853" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud853&quot;,&quot;course_section&quot;:&quot;related&quot;,&quot;ranking&quot;:4,&quot;variation_id&quot;:&quot;CTRL&quot;,&quot;pmi&quot;:0}" href="https://www.udacity.com/course/developing-android-apps--ud853">
+                <div class="course-info">
+                  <div class="course-info--category">Android</div>
+                  <h5 class="course-info--title">Developing Android Apps</h5>
+                </div>
+</a>              <a id="ga-de30c2" target="_blank" class="card card--course" data-related-course="ud825" data-ranking="3" data-variation-id="CTRL" data-pmi="0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud825" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud825&quot;,&quot;course_section&quot;:&quot;related&quot;,&quot;ranking&quot;:3,&quot;variation_id&quot;:&quot;CTRL&quot;,&quot;pmi&quot;:0}" href="https://www.udacity.com/course/android-performance--ud825">
+                <div class="course-info">
+                  <div class="course-info--category">Android</div>
+                  <h5 class="course-info--title">Android Performance</h5>
+                </div>
+</a>              <a id="ga-10b6b0" target="_blank" class="card card--course" data-related-course="ud855" data-ranking="6" data-variation-id="CTRL" data-pmi="0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud855" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud855&quot;,&quot;course_section&quot;:&quot;related&quot;,&quot;ranking&quot;:6,&quot;variation_id&quot;:&quot;CTRL&quot;,&quot;pmi&quot;:0}" href="https://www.udacity.com/course/advanced-android-app-development--ud855">
+                <div class="course-info">
+                  <div class="course-info--category">Android</div>
+                  <h5 class="course-info--title">Advanced Android App Development</h5>
+                </div>
+</a>              <a id="ga-fdbb13" target="_blank" class="card card--course" data-related-course="ud836" data-ranking="1" data-variation-id="CTRL" data-pmi="0" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud836" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud836&quot;,&quot;course_section&quot;:&quot;related&quot;,&quot;ranking&quot;:1,&quot;variation_id&quot;:&quot;CTRL&quot;,&quot;pmi&quot;:0}" href="https://www.udacity.com/course/android-basics-user-input--ud836">
+                <div class="course-info">
+                  <div class="course-info--category">Android</div>
+                  <h5 class="course-info--title">Android Basics: User Input</h5>
+                </div>
+</a>        </div>
+        <h6>Popular Free Courses</h6>
+        <div class="cards_contain">
+              <a id="ga-11764f" target="_blank" class="card card--course" data-popular-course="ud304" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud304" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud304&quot;,&quot;course_section&quot;:&quot;popular&quot;}" href="https://www.udacity.com/course/intro-to-html-and-css--ud304">
+                <div class="course-info">
+                  <div class="course-info--category">Web Development</div>
+                  <h5 class="course-info--title">Intro to HTML and CSS</h5>
+                </div>
+</a>              <a id="ga-64f195" target="_blank" class="card card--course" data-popular-course="ud1028" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud1028" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud1028&quot;,&quot;course_section&quot;:&quot;popular&quot;}" href="https://www.udacity.com/course/passwordless-login-solutions-for-ios--ud1028">
+                <div class="course-info">
+                  <div class="course-info--category">iOS</div>
+                  <h5 class="course-info--title">Passwordless Login Solutions for iOS</h5>
+                </div>
+</a>              <a id="ga-86c361" target="_blank" class="card card--course" data-popular-course="ud730" data-analytics-name="Course CTA Clicked" data-analytics-category="Course CTA" data-analytics-label="Course CTA - Learn More - ud730" data-analytics-type="CTA" data-analytics-payload="{&quot;cta_message&quot;:&quot;Learn More&quot;,&quot;cta_destination&quot;:&quot;new_window&quot;,&quot;cta_location&quot;:&quot;COP&quot;,&quot;cta_type&quot;:&quot;card&quot;,&quot;page_course_key&quot;:&quot;ud851&quot;,&quot;destination_course_key&quot;:&quot;ud730&quot;,&quot;course_section&quot;:&quot;popular&quot;}" href="https://www.udacity.com/course/deep-learning--ud730">
+                <div class="course-info">
+                  <div class="course-info--category">Data Science</div>
+                  <h5 class="course-info--title">Deep Learning</h5>
+                </div>
+</a>        </div>
+    </div>
+  </section>
+
+  
+
+  
+
+
+
+
+    <footer class="footer">
+  <div class="contain contain--small">
+    <section class="footer__logo">
+      <a id="ga-2a77ed" title="Udacity" href="https://www.udacity.com/">
+        <div class="footer__logo__mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" alt="Udacity">
+  <path id="mark" fill="#02B3E4" fill-rule="evenodd" d="M29 .5l1 .5v13c0 5.551887-2.8897 8.695692-5.995216 10.099885L24.0094 24.1l-7.620963 4.388562c-.05877.03456-.11776.068527-.176957.101902l-.08642.049764.001806-.00254C14.48289 29.545895 12.684682 30 11 30 6 30 0 26 0 18V6l2 1v11c0 8 6 10 9 10 1.858706 0 4.86901-.76773 6.89043-3.254517C14.181726 23.872636 10 20.678703 10 14V2.2L2 7 0 6l10-6 1 .5 1 .5v13c0 6.939958 4.515283 8.612086 7.017542 8.933368C19.625786 21.62159 20 19.997902 20 18V5l2 1v12c0 1.852645-.321777 3.49077-.878395 4.91438C23.648223 22.549217 28 20.813144 28 14V2.25L22 6l-2-1 8-5 1 .5z"></path>
+</svg>
+        </div>
+</a>    </section>
+    <nav class="footer__primary" role="navigation">
+      <ul class="footer__nav">
+        <li class="footer__nav__col">
+          <h6 class="footer__nav__toggle">Featured Programs</h6>
+          <ul class="footer__nav__list">
+                <li><a id="ga-390783" href="https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004">Full Stack Web Developer</a></li>
+                <li><a id="ga-ad419e" href="https://www.udacity.com/course/ios-developer-nanodegree--nd003">Become an iOS Developer</a></li>
+                <li><a id="ga-c0f80e" href="https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013">Self-Driving Car Engineer</a></li>
+                <li><a id="ga-559363" href="https://www.udacity.com/course/intro-to-programming-nanodegree--nd000">Intro to Programming</a></li>
+                <li><a id="ga-c3faa9" href="https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801">Android Developer</a></li>
+                <li><a id="ga-51d440" href="https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001">Front-End Web Developer</a></li>
+                <li><a id="ga-b597ed" href="https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889">Artificial Intelligence</a></li>
+                <li><a id="ga-00b6d3" href="https://www.udacity.com/course/digital-marketing-nanodegree--nd018">Digital Marketing</a></li>
+                <li><a id="ga-584d83" href="https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009">Machine Learning Engineer</a></li>
+          </ul>
+        </li>
+            <li class="footer__nav__col">
+              <h6 class="footer__nav__toggle">Learn with Udacity</h6>
+              <ul class="footer__nav__list">
+                  <li><a id="ga-d98bef" href="https://www.udacity.com/degrees/nd001/info/develop-the-skills-to-become-a-front-end-web-developer">JavaScript Tutorial</a></li>
+                  <li><a id="ga-0fdacb" href="https://www.udacity.com/degrees/nd801/info/perfecting-apps-as-an-android-developer">How To Make An App For Android</a></li>
+                  <li><a id="ga-21e192" href="https://www.udacity.com/degrees/nd801/info/android-developer-course-for-more-opportunities">Android Projects</a></li>
+                  <li><a id="ga-a6c9e2" href="https://www.udacity.com/degrees/nd001/info/find-success-as-a-front-end-web-developer">Junior Web Developer</a></li>
+                  <li><a id="ga-69afc2" href="https://www.udacity.com/degrees/nd001/info/learn-the-basics-of-responsive-design-as-a-front-end-web-developer">What Is Responsive Design</a></li>
+                  <li><a id="ga-98f610" href="https://www.udacity.com/degrees/nd801/info/kickstart-a-career-as-an-android-developer">Android App Developer</a></li>
+                  <li><a id="ga-2c062e" href="https://www.udacity.com/degrees/nd001/info/improve-your-knowledge-of-foundational-web-design-skills">HTML Tutorial</a></li>
+                  <li><a id="ga-d12b54" href="https://www.udacity.com/degrees/nd009/info/learn-to-design-artificial-neural-networks-as-a-machine-learning-engineer">Artificial Neural Network</a></li>
+                  <li><a id="ga-e78d15" href="https://www.udacity.com/degrees/nd803/info/develop-skills-with-android-basics-by-google">Java Programming Examples</a></li>
+              </ul>
+            </li>
+        <li class="footer__nav__col">
+          <h6 class="footer__nav__toggle">Resources</h6>
+          <ul class="footer__nav__list">
+            <li><a id="ga-eeb56e" href="https://www.udacity.com/courses/all">Catalog</a></li>
+            <li><a id="ga-57e697" href="https://career-resource-center.udacity.com/">Career Resource Center</a></li>
+            <li><a id="ga-d9237d" href="https://www.udacity.com/hiring-partners">Hiring Partners</a></li>
+            <li><a id="ga-1e83c0" href="https://www.udacity.com/success">Student Success</a></li>
+            <li><a id="ga-cfb007" href="https://www.udacity.com/uconnect">Udacity Connect</a></li>
+            <li><a id="ga-ab2058" href="https://www.udacity.com/talks">Udacity Talks</a></li>
+            <li><a id="ga-944bdb" href="https://www.udacity.com/scholarships">Scholarships</a></li>
+          </ul>
+          <h6 class="footer__nav__toggle">Programs</h6>
+          <ul class="footer__nav__list">
+            <li><a id="ga-60c578" href="https://www.udacity.com/nanodegree/plus">Nanodegree Plus</a></li>
+            <li><a id="ga-be9807" href="https://www.udacity.com/veterans">Veterans</a></li>
+            <li><a id="ga-8f313e" href="https://www.udacity.com/georgia-tech">Georgia Tech</a></li>
+            <li><a id="ga-3ae14a" href="https://www.udacity.com/self-driving-car">Udacity Self-Driving Car</a></li>
+          </ul>
+        </li>
+        <li class="footer__nav__col">
+          <h6 class="footer__nav__toggle">Company</h6>
+          <ul class="footer__nav__list">
+            <li><a id="ga-c38ff2" href="https://www.udacity.com/us">About</a></li>
+            <li><a id="ga-201e08" href="http://blog.udacity.com/">Blog</a></li>
+            <li><a id="ga-889f92" href="https://www.udacity.com/press">In the News</a></li>
+            <li><a id="ga-4ea6b5" href="https://www.udacity.com/jobs">Jobs</a></li>
+            <li><a id="ga-a2e413" href="https://www.udacity.com/mobile">Mobile</a></li>
+            <li><a id="ga-d21b56" href="https://www.udacity.com/intersect">Udacity Intersect</a></li>
+          </ul>
+          <h6 class="footer__nav__toggle">Business</h6>
+          <ul class="footer__nav__list">
+            <li><a id="ga-856303" href="https://www.udacity.com/business">Udacity for Business</a></li>
+            <li><a id="ga-8c489c" href="https://www.udacity.com/corporate-training">Corporate Training</a></li>
+            <li><a id="ga-f6dc3f" href="https://www.udacity.com/hire-talent">Hire Graduates</a></li>
+          </ul>
+        </li>
+        <li class="footer__nav__col">
+          <h6 class="footer__nav__toggle">Support</h6>
+          <ul class="footer__nav__list">
+            <li><a id="ga-4c88c3" href="https://www.udacity.com/contact">Contact Us</a></li>
+            <li><a id="ga-82d9bd" href="http://support.udacity.com/">Help and FAQ</a></li>
+            <li><a id="ga-d8d6d5" href="http://status.udacity.com/">Service Status</a></li>
+            <li><a id="ga-dc450a" href="https://www.udacity.com/sitemap/guides">Course Guides</a></li>
+            <li class="hidden-md-up"><a id="ga-20d511" href="https://www.udacity.com/legal">Legal &amp; Privacy</a></li>
+            <li class="hidden-md-up"><a id="ga-94c948" href="https://www.udacity.com/regulatory-information">Regulatory Information</a></li>
+            <li class="hidden-md-up"><a id="ga-7386be" href="https://www.udacity.com/sitemap">Site Map</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <section class="footer__secondary">
+      <div class="footer__col">
+        <ul class="fineprint">
+          <li><p class="small mb-0">© 2011–2017 Udacity, Inc.</p></li>
+          <li class="fineprint__link hidden-sm-down"><a id="ga-522f45" href="https://www.udacity.com/legal">Legal &amp; Privacy</a></li>
+          <li class="fineprint__link hidden-sm-down"><a id="ga-2edd06" href="https://www.udacity.com/regulatory-information">Regulatory Information</a></li>
+          <li class="fineprint__link hidden-sm-down"><a id="ga-df5058" href="https://www.udacity.com/sitemap">Site Map</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="locales">
+          <div id="footer-geo-toggle-dd-placeholder" class="dd-container"><div class="dd-select"><input class="dd-selected-value" type="hidden" id="footer-geo-toggle" value="#"><a class="dd-selected"><img class="dd-selected-image" src="./Developing Android Apps _ Udacity_files/icon-flag-us-4ef639e75c4c904b0e45af5a9fd1091197d38bdf9ddd8cadd7cb79d95503e986.svg"><label class="dd-selected-text">United States</label></a><span class="dd-pointer dd-pointer-down"></span></div><ul class="dd-options dd-click-off-close" style=""><li><a class="dd-option"> <input class="dd-option-value" type="hidden" value="https://br.udacity.com"> <img class="dd-option-image" src="./Developing Android Apps _ Udacity_files/icon-flag-br-a8b619f8d748e44e77016fd992181f70c54236acaa668993eeb84ed3793f8b22.svg"> <label class="dd-option-text">Brazil</label></a></li><li><a class="dd-option"> <input class="dd-option-value" type="hidden" value="https://cn.udacity.com"> <img class="dd-option-image" src="./Developing Android Apps _ Udacity_files/icon-flag-cn-4353a1072f1d183176d8e06a34755d7f144884975845196f791d64ed905fce47.svg"> <label class="dd-option-text">China</label></a></li><li><a class="dd-option"> <input class="dd-option-value" type="hidden" value="https://de.udacity.com"> <img class="dd-option-image" src="./Developing Android Apps _ Udacity_files/icon-flag-de-deedb1a7a695700236cb6ef4204ddbede5d197dab9b47716c87a0b4d5d9fc325.svg"> <label class="dd-option-text">Germany</label></a></li><li><a class="dd-option"> <input class="dd-option-value" type="hidden" value="https://in.udacity.com"> <img class="dd-option-image" src="./Developing Android Apps _ Udacity_files/icon-flag-in-3da2d2c2cd96731bcf966e830c0fb687f96cba22a41a622a1e34668728fbbb03.svg"> <label class="dd-option-text">India</label></a></li><li><a class="dd-option dd-option-selected"> <input class="dd-option-value" type="hidden" value="#"> <img class="dd-option-image" src="./Developing Android Apps _ Udacity_files/icon-flag-us-4ef639e75c4c904b0e45af5a9fd1091197d38bdf9ddd8cadd7cb79d95503e986.svg"> <label class="dd-option-text">United States</label></a></li></ul></div>
+        </div>
+        <ul class="social">
+          <li>
+            <a id="ga-0942b6" target="_blank" title="Facebook" href="https://www.facebook.com/Udacity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" alt="Facebook">
+  <path id="icon-social" fill="#000000" fill-rule="evenodd" d="M16.55299 23.990472v-9.290337h3.11838l.466877-3.620674H16.55299V8.76782c0-1.04827.291055-1.762607 1.794336-1.762607l1.917303-.000898V3.766022c-.331777-.044044-1.469755-.14265-2.7938-.14265-2.764314 0-4.656808 1.68728-4.656808 4.785976v2.670113H9.68764v3.620676h3.126383v9.290337h3.738966"></path>
+</svg>
+
+</a>          </li>
+          <li>
+            <a id="ga-7edf55" target="_blank" title="Twitter" href="https://twitter.com/udacity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" alt="Twitter">
+  <path id="icon-social" fill="#000000" fill-rule="evenodd" d="M8.31918 20.297607c7.58269 0 11.730104-6.270665 11.730104-11.708558 0-.17811 0-.355415-.012056-.531918.806842-.58253 1.50332-1.30381 2.056827-2.13007-.752418.33279-1.550594.551034-2.367883.647446.860623-.51428 1.504742-1.323153 1.812484-2.276086-.809262.47933-1.694616.817138-2.617854.998846-1.277915-1.356348-3.30851-1.68832-4.953145-.809762-1.644634.878557-2.494295 2.74915-2.07254 4.562856-3.3148-.165873-6.403192-1.728667-8.49657-4.29945-1.094224 1.880273-.535316 4.285698 1.276374 5.49325-.656075-.019408-1.29785-.196067-1.871156-.515067v.05215c.000537 1.958854 1.38388 3.646015 3.307482 4.033892-.606946.16522-1.243758.189373-1.861514.0706.540088 1.676313 2.087834 2.824673 3.85163 2.85774-1.459845 1.14521-3.263227 1.766896-5.119965 1.76503-.328013-.00063-.655706-.020453-.981394-.05937 1.885335 1.207662 4.079025 1.84824 6.31918 1.845257"></path>
+</svg>
+
+</a>          </li>
+          <li>
+            <a id="ga-3a4b7b" target="_blank" title="Medium" href="https://medium.com/udacity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" alt="Medium">
+  <path id="icon-social" fill="#000000" fill-rule="evenodd" d="M21.095868 7.13293c-.003757-.00287-.00662-.006635-.01109-.008786l-.00644-.003228-5.647355-2.830564c-.038283-.019008-.078354-.032098-.118962-.0425-.05098-.013268-.10286-.02116-.155094-.02116-.216277 0-.43166.10885-.548295.29857l-3.251312 5.29639 4.080284 6.64649 5.67544-9.244835c.018965-.030663.00984-.068858-.01717-.090377M9.76754 8.53387v5.96381l5.450657 2.650543m.501547.55504l4.505583 2.21278c.586275.288044 1.06156.08654 1.06156-.45015V8.816878l-5.567143 8.886385zM8.80403 6.973853L3.202026 4.22503c-.1012-.049567-.197495-.073102-.284524-.073102-.24546 0-.41752.186322-.41752.498878V16.52012c0 .31773.236922.693938.526533.836042l4.933935 2.420933c.126637.062048.247096.091467.355928.091467.30669 0 .521627-.232857.521627-.623687V7.02788c0-.022823-.01308-.043863-.033975-.054026"></path>
+</svg>
+
+</a>          </li>
+          <li>
+            <a id="ga-443d44" target="_blank" title="LinkedIn" href="https://www.linkedin.com/company/udacity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" alt="LinkedIn">
+  <path id="icon-social" fill="#000000" fill-rule="evenodd" d="M18.366728 18.338h-2.674412v-4.1775c0-.996-.017032-2.2775-1.389553-2.2775-1.392057 0-1.604447 1.0855-1.604447 2.2065v4.2485h-2.671408v-8.59h2.56371v1.1745h.037068c.356655-.6755 1.229258-1.3875 2.530148-1.3875 2.708475 0 3.208894 1.7785 3.208894 4.092v4.711zM7.011368 8.5745c-.859077 0-1.55185-.6935-1.55185-1.5485 0-.8545.692773-1.548 1.55185-1.548.855572 0 1.549848.6935 1.549848 1.548 0 .855-.694276 1.5485-1.549847 1.5485zM5.67191 18.338h2.67742v-8.59H5.67191v8.59zM19.698675 3H4.329943C3.596095 3 3 3.581 3 4.298v15.403C3 20.418 3.596095 21 4.329943 21h15.368732c.73535 0 1.33395-.582 1.33395-1.299V4.298c0-.717-.5986-1.298-1.33395-1.298z"></path>
+</svg>
+
+</a>          </li>
+          <li>
+            <a id="ga-ddbd77" target="_blank" title="Instagram" href="https://www.instagram.com/udacity/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" alt="Instagram">
+  <g id="icon-social" fill="#000000" fill-rule="evenodd">
+    <path d="M12.05987 5.449593c2.152093 0 2.406987.008176 3.25687.04688.78583.0358 1.212596.16686 1.496636.277005.376183.145943.644707.320308.926732.601815.282025.281507.45671.549538.60289.92503.11038.283518.24168.7095.277546 1.493854.038777.848354.046967 1.10278.046967 3.25092 0 2.14814-.00819 2.402565-.04696 3.250886-.03586.784387-.16716 1.210368-.27754 1.493887-.14618.375492-.32086.643522-.60289.92503-.28202.281506-.55055.45587-.92673.601782-.28404.110176-.7108.241237-1.49663.277036-.84975.038706-1.10465.04688-3.25687.04688-2.15222 0-2.40711-.008174-3.25687-.04688-.78583-.0358-1.21259-.16686-1.4966-.277036-.37621-.14591-.644733-.320276-.92676-.601783-.282024-.28151-.45671-.54954-.60289-.92503-.11038-.28352-.24168-.7095-.277545-1.49386-.038775-.84836-.046966-1.10278-.046966-3.25092 0-2.14814.00819-2.40257.046967-3.25089.035868-.78439.16717-1.21037.27755-1.49389.14618-.3755.320865-.64353.60289-.92503.282026-.28151.55055-.45587.926764-.60182.28401-.11015.71077-.24121 1.49657-.27701.849914-.038708 1.10481-.04688 3.2569-.04688m0-1.449597c-2.18895 0-2.46339.00926-3.323064.048412-.85791.03909-1.44378.17507-1.95648.37396-.53001.205594-.97949.480682-1.42756.92793-.448075.44725-.72367.895906-.929645 1.42494-.19926.51176-.33549 1.096553-.37465 1.95289C4.00925 9.586193 4 9.860163 4 12.045093s.009246 2.4589.04847 3.31696c.03916.85634.17539 1.44113.374648 1.95289.205975.529006.48157.97769.929643 1.42494.44808.44725.89756.72234 1.42757.927937.5127.19889 1.09857.33487 1.95649.37396.85968.03915 1.13412.04838 3.32307.04838s2.46343-.00923 3.32307-.04838c.857914-.03909 1.443784-.17507 1.956484-.37396.530008-.2056.97949-.48069 1.42756-.92794s.72367-.89591.929645-1.42494c.19926-.51176.335487-1.09655.37465-1.95289.039225-.85806.048503-1.13203.048503-3.31696 0-2.18493-.009276-2.4589-.0485-3.31696-.03916-.85634-.17539-1.44113-.374646-1.95289-.20598-.52904-.48157-.97769-.929644-1.42494-.44807-.44725-.897554-.72234-1.42756-.92794-.5127-.19889-1.09857-.33487-1.956485-.37396C14.523295 4.00926 14.24882 4 12.05987 4"></path>
+    <path d="M12.06243 7.916348c-2.285827 0-4.138874 1.849643-4.138874 4.13127 0 2.28163 1.853047 4.131272 4.138874 4.131272 2.285826 0 4.138873-1.849643 4.138873-4.13127 0-2.28163-1.853047-4.131272-4.138873-4.131272zm0 6.81298c-1.483775 0-2.686645-1.20066-2.686645-2.68171 0-1.481048 1.20287-2.681708 2.686645-2.681708 1.483775 0 2.686644 1.20066 2.686644 2.68171 0 1.481048-1.20287 2.681708-2.686644 2.681708zm5.269565-6.976198c0 .533185-.433003.965425-.96717.965425-.53417 0-.967205-.43224-.967205-.965426 0-.53319.433036-.9654.967204-.9654s.96717.43221.96717.96539"></path>
+  </g>
+</svg>
+
+</a>          </li>
+          <li>
+            <a id="ga-0f14c4" target="_blank" title="Google +" href="https://plus.google.com/+Udacity/posts">
+              <svg xmlns="http://www.w3.org/2000/svg" width="31" height="24" viewBox="0 0 31 24" alt="Google +">
+  <path id="icon-social" fill="#000000" fill-rule="evenodd" d="M25.590768 10.61339V7.82461h-1.99565v2.78878H20.72138v1.991985h2.873737v2.868458h1.99565v-2.868458h2.793912V10.61339h-2.793913zm-14.528338-.15936v3.187177s3.09757-.004143 4.35882-.004143c-.68299 2.066166-1.744997 3.19132-4.35882 3.19132-2.645196 0-4.709737-2.14043-4.709737-4.780765 0-2.640338 2.06454-4.780766 4.709737-4.780766 1.398552 0 2.301783.490666 3.130298 1.174554.66314-.661977.607795-.756318 2.295078-2.346798C15.055488 4.793288 13.151796 4 11.06243 4 6.609653 4 3 7.603023 3 12.04762c0 4.444516 3.609653 8.047618 8.06243 8.047618 6.655655 0 8.28243-5.784724 7.743125-9.641207H11.06243z"></path>
+</svg>
+
+</a>          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="text-center">
+      <p class="micro mb-half">"Nanodegree" is a registered trademark of Udacity. <span>© 2011–2017 Udacity, Inc.</span></p>
+      <p class="micro legible center mb-0">Udacity is not an accredited university and we don't confer traditional degrees. Udacity Nanodegree programs represent collaborations with our industry partners who help us develop our content and who hire many of our program graduates.</p>
+    </section>
+  </div>
+</footer>
+
+    
+      <script src="./Developing Android Apps _ Udacity_files/jquery-1.12.2.min.js.download" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      if (!window.jQuery) {
+        var s = document.createElement('script');
+        s.src = '/public/vendor/jquery-1.12.2.min.js';
+        document.body.append(s);
+      }
+    </script>
+    <script src="./Developing Android Apps _ Udacity_files/application-f8332ab0caf6073e79768e24ce4adbe28a17d374a5015a66d74fd110194ea877.js.download"></script>
+      <script>
+    if (window) {
+      window.node = {"available":true,"key":"ud851"};
+    }
+  </script>
+  <script src="./Developing Android Apps _ Udacity_files/course_overview-cda117bc2388012a1ed4aaf25dabd7e2f73eccda9d3904d683a755e5720f6d58.js.download"></script>
+  <script src="./Developing Android Apps _ Udacity_files/nd-reviews-stars-c2b6cc4e0b83cdaa18c37e9c6f6cde78408434ac979092f4f3d9293d0f2db19c.js.download"></script>
+
+  </div><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.3394065457297111"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.1898676864630593" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.23587264555742404" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(1)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.7835563592281618" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(2)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6060568356033833" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(3)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.3912767032538609" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(4)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.655949860003002" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(5)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.25797083183289615" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(6)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.5164965075104493" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(7)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.09488810053714758" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(8)"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.48310530295435505" width="0" height="0" alt="" src="./Developing Android Apps _ Udacity_files/0(9)"></div>
+
+
+<div class="remodal-overlay remodal-is-closed" style="display: none;"></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal modal-video remodal-is-initialized remodal-is-closed" data-video-id="180948560" data-remodal-id="cop-trailer" tabindex="-1">
+  <div data-remodal-action="close" class="remodal-close white"></div>
+  <h6>Developing Android Apps</h6>
+  <div class="embed-container">
+  </div>
+</div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-0" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 1</h6>
+            <h4>Creating Project Sunshine</h4>
+            <ul class="disc">
+              <li>Learn how to create and run a simple Android app</li>
+              <li>Create simple layouts for Android</li>
+              <li>Learn about the Android Studio IDE</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-1" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 2</h6>
+            <h4>Loading Data from the Internet</h4>
+            <ul class="disc">
+              <li>Connect to the Internet and communicate with web APIs</li>
+              <li>Learn about threading and how to make requests without slowing down your app</li>
+              <li>Learn how to add menus to your app</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-2" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 3</h6>
+            <h4>RecyclerView</h4>
+            <ul class="disc">
+              <li>Learn about the components that convert a list of data into visual UI elements</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-3" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 4</h6>
+            <h4>Intents</h4>
+            <ul class="disc">
+              <li>Learn the difference between Explicit and Implicit Intents</li>
+              <li>Learn how to navigate inside your apps using intents</li>
+              <li>Learn how to create Intents that apps outside your control can respond to</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-4" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 5</h6>
+            <h4>The Application Lifecycle</h4>
+            <ul class="disc">
+              <li>Understand the phases of the Android application lifecycle</li>
+              <li>Learn how to persist data between orientation and other changes</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-5" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 6</h6>
+            <h4>Preferences</h4>
+            <ul class="disc">
+              <li>Allow users to customize some aspects of your app</li>
+              <li>Consider when to omit or add a preference</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-6" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 7</h6>
+            <h4>Creating SQLite Databases</h4>
+            <ul class="disc">
+              <li>Implement a SQLite database</li>
+              <li>Make queries to and modify that database in your app</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-7" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 8</h6>
+            <h4>Introduction to Content Providers</h4>
+            <ul class="disc">
+              <li>Learn how Content Providers provide an interface to share data</li>
+              <li>Consume data from an already existing ContentProvider</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-8" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 9</h6>
+            <h4>Building a Content Provider</h4>
+            <ul class="disc">
+              <li>Learn to build a Content Provider</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-9" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 10</h6>
+            <h4>Background Tasks</h4>
+            <ul class="disc">
+              <li>Coming soon!</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-10" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 11</h6>
+            <h4>Completing the UI</h4>
+            <ul class="disc">
+              <li>Coming soon!</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-closed" data-remodal-id="lesson-modal-11" tabindex="-1">
+            <div data-remodal-action="close" class="remodal-close"></div>
+            <h6 class="mb-half">Lesson 12</h6>
+            <h4>Polishing the UI</h4>
+            <ul class="disc">
+              <li>Coming soon!</li>
+            </ul>
+          </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal modal-redirect text-center remodal-is-initialized remodal-is-closed" data-remodal-id="redirect-to-classroom" data-remodal-options="closeOnOutsideClick: false, closeOnEscape: false" tabindex="-1">
+    <div class="u-loading center">
+      <strong>Please wait</strong>
+      <span><i>Loading</i></span>
+    </div>
+  </div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal modal-notify text-center remodal-is-initialized remodal-is-closed" data-remodal-id="notify-me" tabindex="-1">
+  <div data-remodal-action="close" class="remodal-close"></div>
+  <h2>Get Notified</h2>
+  <p class="small">Get notified when the Developing Android Apps course launches.</p>
+  <form id="notify-me-form" novalidate="">
+    <div class="input-container">
+      <label for="user_first_name">First Name*</label>
+      <input name="user_first_name" type="text" placeholder="First Name*" autocomplete="given-name" autocorrect="off" required="" tabindex="1">
+    </div>
+    <div class="input-container">
+      <label for="email">Email*</label>
+      <input name="email" type="email" placeholder="Email Address*" autocomplete="email" autocorrect="off" autocapitalize="off" required="" tabindex="2">
+    </div>
+    <label for="interested_in">Interested In</label>
+    <input name="interested_in" type="hidden" value="notify-me">
+    <label for="course_key">Nanodegree Interested</label>
+    <input name="course_key" type="hidden" value="ud851">
+    <button type="submit" value="submit" class="button--primary center">Submit</button>
+  </form>
+</div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal text-center remodal-is-initialized remodal-is-closed" id="notify-me-success" data-remodal-id="notify-me-success" tabindex="-1">
+  <div data-remodal-action="close" class="remodal-close"></div>
+  <h2>Thanks for your interest!</h2>
+  <p>We'll be in touch soon.</p>
+</div></div><div class="remodal-wrapper remodal-is-closed" style="display: none;"><div class="remodal geo-redirect-modal remodal-is-initialized remodal-is-closed" data-remodal-id="geo-redirect" tabindex="-1">
+  <div data-remodal-action="close" class="remodal-close"></div>
+
+  <img src="./Developing Android Apps _ Udacity_files/icon-globe-e82eae5d45465aba4fbe4bb746905ce55dc3324f310b79c60e4a20089057d347.svg" alt="Icon globe e82eae5d45465aba4fbe4bb746905ce55dc3324f310b79c60e4a20089057d347">
+
+  <h3>
+    <span data-country="CN">Udacity 现已提供中文版本！</span>
+    <span data-country="BR">A Udacity tem uma página em português para você!</span>
+    <span data-country="IN">There's a local version of Udacity for you!</span>
+    <span data-country="DE">Sprechen Sie Deutsch?</span>
+  </h3>
+
+  <p data-country="DE">
+    Besuchen Sie <strong>de.udacity.com</strong> und entdecken Sie lokale Angebote, unsere Partnerunternehmen und
+    Udacitys deutschsprachigen Blog.
+  </p>
+
+  <div class="save-preference">
+    <label for="saveRedirectPreference">
+      <input type="checkbox" id="saveRedirectPreference">
+      <span data-country="CN">将此设置为 Udacity 默认主页</span>
+      <span data-country="BR">Tornar esta a página padrão da Udacity</span>
+      <span data-country="IN">Always make this my Udacity homepage</span>
+    </label>
+  </div>
+
+  <a href="https://www.udacity.com/course/new-android-fundamentals--ud851#" class="button button--primary mb-1" id="localLink">
+    <span data-country="CN">前往优达学城中文网站</span>
+    <span data-country="BR">Ir para a página brasileira</span>
+    <span data-country="IN">Go to Indian Site</span>
+    <span class="geo-redirect-flag" data-country="DE"><img src="./Developing Android Apps _ Udacity_files/icon-flag-de-deedb1a7a695700236cb6ef4204ddbede5d197dab9b47716c87a0b4d5d9fc325.svg" alt="Icon flag de deedb1a7a695700236cb6ef4204ddbede5d197dab9b47716c87a0b4d5d9fc325"></span>
+    <span class="geo-redirect-cta" data-country="DE">Zu de.udacity.com</span>
+  </a>
+
+  <a href="https://www.udacity.com/course/new-android-fundamentals--ud851#" data-remodal-action="close" id="globalLink" class="text-only">
+    continue in English
+  </a>
+</div></div></body></html>

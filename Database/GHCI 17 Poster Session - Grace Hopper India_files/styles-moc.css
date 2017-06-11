@@ -1,0 +1,193 @@
+@charset "utf-8";
+/* CSS Document "styles-moc.css" - CSS added by Marcelo O. Cavallari */
+
+body.home #banner .hero-box-text div#home-image-overlay {
+    font-weight: bold;
+}
+
+section#main ul {
+ list-style-type: disc;
+ padding-left: 2.4em;
+}
+
+section#main ol {
+ list-style-type: decimal;
+ padding-left: 2.4em;
+}
+
+section#main ol.hlist, section#main ul.hlist {
+ padding-left: inherit;
+}
+
+.p-collapsed, .h-collapsed {
+ margin: 0;
+}
+
+div.wrapper p.action-link {
+ margin-top: .2em;
+}
+
+.entry-collapsed-inside {
+ margin: 1em 0;
+ padding-bottom: 1em;
+}
+
+.orange-high {
+ color: #ec8e2a;
+ font-size: 1.2em;
+ font-weight: bold;
+}
+
+.plusdoubleline {
+ line-height: 2em;
+}
+
+.side-module .textwidget #centersidebar p {
+ color: #323232;
+}
+
+.textwidget p.extrapadding {
+ padding-bottom: .2em;
+}
+
+.textwidget .widgettitle {
+  font-family: "prenton-condensed", Helvetica, sans-serif;
+  color: #54bceb;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+  font-size: 24px;
+}
+
+#centersidebar {
+text-align: center;
+}
+
+/* incontent */
+
+.incontent-left {
+ float: left;
+}
+
+.incontent-narrow {
+ width: 45%;
+ padding-right: 1em;
+}
+
+.incontent-img {
+ border: 0;
+}
+
+#main table.incontent-table, #main table.incontent-table tr, #main table.incontent-table td {
+ border: 0;
+}
+
+.incontent-head, .insidebar-head {
+ font-weight: bold;
+}
+
+.incontent-quote, .insidebar-quote {
+ font-style: italic;
+}
+
+.incontent-small p, .insidebar-small p {
+ font-size: 14px;
+}
+
+/* perks table */
+
+#main table.perks-table, #main table.perks-table tr, #main table.perks-table th, #main table.perks-table td {
+ border: 1px solid #666;
+}
+
+#main table.perks-table tr, #main table.perks-table td {
+ text-align: center;
+ vertical-align: top;
+}
+
+#main table.perks-table th {
+ background-color: #ccc;
+}
+
+#main table.perks-table th span.demoted, #main table.perks-table td span.demoted {
+ font-weight: normal;
+ font-size: smaller;	
+}
+
+#main table.perks-table td div#perk-point {
+ margin-bottom: 1em;
+}
+
+/* in-page-entry */
+
+.in-page-entry {
+	border-top: 1px dashed #ccc;
+	padding-bottom: 1em;
+	margin-top: 1em;
+}
+
+.in-page-entry ul, .in-page-entry p {
+	margin: 0;
+}
+
+section#main .in-page-entry ul {
+	padding: 0 0 0 40px;
+	font-size: 18px;
+}
+
+.reddot, .crimson-swatch, a.crimson-swatch, a:visited.crimson-swatch {
+	color: #EF4135;
+}
+
+.greendot, .sublime-swatch, a.sublime-swatch, a:visited.sublime-swatch {
+	color: #C1D82F;
+}
+
+.bluedot, .caribbean-swatch, a.caribbean-swatch, a:visited.caribbean-swatch {
+	color: #54BCEB;
+}
+
+.orangedot, .tangerine-swatch, a.tangerine-swatch, a:visited.tangerine-swatch {
+	color: #F89728;
+}
+
+.canary-swatch, a.canary-swatch, a:visited.canary-swatch {
+	color: #F8D44C;
+}
+
+.shamrock-swatch, a.shamrock-swatch, a:visited.shamrock-swatch {
+	color: #6CC04A;
+}
+
+.emerald-swatch, a.emerald-swatch, a:visited.emerald-swatch {
+	color: #00833E;
+}
+
+.marine-swatch, a.marine-swatch, a:visited.marine-swatch {
+	color: #0076A9;
+}
+
+.mediumgrey-swatch, a.mediumgrey-swatch, a:visited.mediumgrey-swatch {
+	color: #939598;
+}
+
+.lightgrey-swatch, a.lightgrey-swatch, a:visited.lightgrey-swatch {
+	color: #bfbfbf;
+}
+
+.subfield {
+	text-transform: uppercase;
+}
+
+.subhead, .sublabel {
+	font-size: .9em;
+	letter-spacing: .03em;
+	color: #3d3d3d;
+}
+
+.subcaption {
+	font-size: .75em;
+	letter-spacing: .05em;
+	color: #8a8a8a;
+}
+
