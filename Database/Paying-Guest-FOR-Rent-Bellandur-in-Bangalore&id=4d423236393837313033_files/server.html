@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0044)https://ingestor.magicbricks.com/server.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style id="stndz-style"></style>
+		<title>RAM Ingestor - Tracker</title><meta name="robots" content="noindex, nofollow">
+		<script type="text/javascript" src="./porthole.min.js.download"></script>
+		<script type="text/javascript">
+			function onMessage(messageEvent) {
+				if (messageEvent.data["event"]) {
+					$.ajax({
+				        type: "post",
+				        contentType: "application/json",
+				        url: messageEvent.data["url"],
+				        data: JSON.stringify(messageEvent.data["event"]),
+				        dataType: "json",
+				        success: function() {
+				        	console.log("done sending");
+				        },
+				        error: function(xhr, textStatus, errorThrown){
+							$.ajax({
+						        type: "post",
+						        contentType: "application/json",
+						        url: "/ramIngestorService/search/postError",
+						        data: JSON.stringify(messageEvent.data["event"]),
+						        dataType: "json",
+							});			
+				        }
+				    });
+				}
+			}
+			var windowProxy;
+			if (!window.jQuery) {
+	 				var jq = document.createElement('script'); jq.type = 'text/javascript';
+	  				jq.src = 'https://cdn.staticmb.com/scripts/jquery-1.11.0.min.js';
+	  				document.getElementsByTagName('head')[0].appendChild(jq);
+				}
+			window.onload=function(){ 
+				windowProxy = new Porthole.WindowProxy("http://www.magicbricks.com/proxy.htm"); 
+				windowProxy.addEventListener(onMessage);
+			}
+		</script><script type="text/javascript" src="./jquery-1.11.0.min.js.download"></script>
+	</head>
+<body>
+</body></html>

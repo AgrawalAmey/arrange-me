@@ -1,0 +1,82 @@
+
+
+				// load new edition settings
+				var espn = espn || {};
+				espn.i18n = espn.i18n || {};
+				espn.i18n.lang = "en";
+				espn.i18n.siteId = "24";
+				espn.i18n.site = "espn";
+				espn.i18n.editionKey = "espnin-en";
+				espn.i18n.personalization = true;
+				espn.i18n.country = "in";
+				espn.i18n.countryName = "null";
+				espn.i18n.domain = "www.espn.in";
+				espn.i18n.searchUrl = "http://search.espn.com/";
+				espn.i18n.hasSearch = true;
+				espn.i18n.defaultSearchParams = {};
+				espn.i18n.nowFeed = false;
+				espn.i18n.temperature = {scale: "celsius", symbol: "&deg; C" };
+				espn.i18n.facebook = {appId: "116656161708917", locale: "en_US" };
+				espn.i18n.twitter = {language: "en"};
+				espn.i18n.outbrain = {"mobile":{"compliantId":"MB_4","nonCompliantId":"MB_5"},"desktop":{"compliantId":"AR_15","nonCompliantId":"AR_12"},"video":{"mobile":{},"desktop":{}},"recap":{"mobile":{"compliantId":"MB_9"},"desktop":{"compliantId":"AR_30"}}}
+				espn.i18n.betting = {show: false, provider: "Bet 365"};
+				espn.i18n.tickets = {"enabled":false};
+				espn.i18n.translations = {};
+				espn.i18n.environment = "prod";
+				espn.i18n.sportBranding = {"soccer":"logos/logo-uk-fc.png","wnba":"logos/ESPNcom-powerby-espnw.png","womenbb":"logos/ESPNcom-powerby-espnw.png","ncw":"logos/ESPNcom-powerby-espnw.png","cricket":"logos/logo-uk-cricinfo.png","rugby":"logos/logo-uk-scrum.png","ncaaw":"logos/ESPNcom-powerby-espnw.png"};
+				espn.i18n.sportToUrl = {};
+				espn.i18n.showWatch = false;
+				
+				espn.i18n.showFCContent = true;
+				espn.i18n.showCricInfoContent = true;
+				espn.i18n.showInsider = false;
+				espn.i18n.indexAutoStart = false;
+				espn.i18n.videoAutoStart = {index: false, scoreboard: false };
+				espn.i18n.customPrimaryNav = false;
+				espn.i18n.isSingleSport = false;
+				espn.i18n.sportReplacements = {"f1":"f1","cycling":"cycling"};
+
+				espn.i18n.uriRewrites = {"paramValues":{"toEnglish":{},"toEdition":{}},"urls":{"toEdition":{},"toEnglish":{}},"paramKeys":{"toEnglish":{},"toEdition":{}},"roots":{"toEnglish":{"/college-football/":"/ncf/","/college-sports/":"/ncaa/","/cycling/":"/cycling/","/espn/rss/football/":"/espn/rss/soccer/","/figure-skating/":"/oly/","/fixtures/":"/schedule","/football/":"/soccer/","/gymnastics/":"/oly/","/horse-racing/":"/horse/","/mens-college-basketball/":"/ncb/","/nba-summer-league/":"/nba/summerleague/","/oly/summer/cycling/":"/oly/summer/cycling/","/oly/summer/gymnastics/":"/oly/summer/gymnastics/","/olympics/":"/oly/","/racing/":"/rpm/","/racing/nascar/":"/nascar/","/skiing/":"/oly/","/sports/horse/":"/horse/","/sports/womenbb/":"/womenbb/","/womens-basketball/":"/womenbb/","/womens-college-basketball/":"/ncw/"},"toEdition":{"/cycling/":"/cycling/","/espn/rss/soccer/":"/espn/rss/football/","/horse/":"/sports/horse/","/nascar/":"/racing/nascar/","/nba/summerleague/":"/nba-summer-league/","/ncaa/":"/college-sports/","/ncb/":"/mens-college-basketball/","/ncf/":"/college-football/","/ncw/":"/womens-college-basketball/","/oly/":"/skiing/","/oly/summer/cycling/":"/oly/summer/cycling/","/oly/summer/gymnastics/":"/oly/summer/gymnastics/","/rpm/":"/racing/","/schedule":"/fixtures/","/soccer/":"/football/","/womenbb/":"/sports/womenbb/"}},"pathSegments":{"toEnglish":{"table":"standings"},"toEdition":{"standings":"table"}}};
+
+				try {
+					var translations = {"cancel":"Cancel","manageSettingInPersonalSettings":"You can manage this setting in the future under your <a href=\"#\">Personal Settings<\/a>","video.next.text":"Up Next","favoritesmgmt.manualSortSelected":"You have chosen to manually order how your favourites will appear across ESPN products. At any time, you may return to having ESPN order your favourites by selecting the \"Auto\" option.","preferences.sport_labels.8367":"Esports","preferences.sport_labels.2020":"NASCAR","draftcast.onTheClock":"On The Clock","Soccer Scores":"Football Scores","preferences.sport_labels.800":"Field Hockey","message.leaguemanager":"Message LM","draftcast.teamNews_%{teamName}":"Full ${teamName} Draft Coverage","favoritesmgmt.suggestedHeader":"Suggestions for your location","score":"Score","favorites.carousel.espnapp.link":"http://www.espn.com/espn/mobile/products/products/_/id/6857590","preferences.sport_labels.3918":"English FA Cup","enter":"Enter","favoritesmgmt.confirmHideFavorite":"Hide this from my favourites?","links.event.game.desktop.href.cricket":"http://www.espncricinfo.com/${matchName}/engine/match/${competitionId}.html","draftcast.endOfDraft":"End of Draft","nflBye":"Bye","preferences.sport_labels.3520":"Poker","preferences.sport_labels.2030":"Formula 1","redesignWelcomeText":"We've redesigned the site with some new and exciting features. You have been selected as part of a limited set of fans who get to experience our new site and give it feedback before it launches!","videoSettings":"Video Settings","edit":"Edit","draftcast.previousPick":"Previous Pick","reactivate":"Reactivate","to_be_determined.abbrev":"TBD","favoriteadded":"Favourite Added","preferences.sport_labels.8374":"Kabaddi","signOut":"Log Out","preferences.sport_labels.8098":"X Games","preferences.sport_labels.8373":"Badminton","createAccount":"Sign Up","draftcast.bestAvailable":"Best Available","preferences.sport_labels.8372":"Chess","draftcast.emptyPositionTable":"No selections have been made for this position.","favoritesmgmt.favoriteEntity":"${entity} - Favourite","connectedfacebook":"Connected to Facebook","draftcast.roundNotStartedYet_%{round}":"Rd ${round} not started","preferences.sport_labels.1106":"Golf","onefeed.scheduleDraft":"Schedule Draft","insider.pickcenter.login_message":"To get exclusive PickCenter analysis, you must be an ESPN Insider","preferences.sport_labels.3920":"English Capital One Cup","favorites.streakLabel":"Streak:","favoritesmgmt.confirmRemoveFavorite":"Remove Favourite?","onefeed.draftNow":"Draft Now","preferences.sport_labels.2000":"Racing","preferences.sport_labels.781":"European Championship","preferences.sport_labels.300":"Rugby","facebook.conversation.account_policy":"Use a <a href=\"https://www.facebook.com/r.php\" rel=\"nofollow\">Facebook account<\/a> to add a comment, subject to Facebook's <a href=\"https://www.facebook.com/policies/\" rel=\"nofollow\">Terms of Service<\/a> and <a href=\"https://www.facebook.com/about/privacy/\" rel=\"nofollow\">Privacy Policy<\/a>. Your Facebook name, photo & other personal information you make public on Facebook will appear with your comment, and may be used on ESPN's media platforms. <a href=\"http://espn.com/espn/story/_/id/8756098/espn-facebook-comments-faq\">Learn more<\/a>.","preferences.sport_labels.3170":"College Sports","preferences.sport_labels.700":"English Premier League","draftcast.shareText_%{pick}_%{round}_%{team}_%{player}_%{href}":"With the ${pick} Pick of the ${round} Round, the ${team} select ${player}. Follow via Draftcast. ${href}","search":"Search","insiderSubscription":"Insider Subscription","draftcast.postdraftAnalysisHeadline":"How He Fits","welcometext":"Welcome","connectfacebook":"Connect with Facebook","video.nowPlaying.text":"Now Playing","close":"Close","email":"Email","preferences.sport_labels.770":"MLS","thereAreNoEventsByDisplayNameByDate":"There are no ${displayName} events for ${readableDate}","draftcast.emptyNews":"No recent team news found.","preferences.sport_labels.1200":"Horse Racing","preferences.sport_labels.775":"UEFA Champions League","Soccer":"Football","preferences.sport_labels.776":"UEFA Europa League","viewAllResultsBySearchTerm":"View all results for '${search_term}'","draftcast.rank":"RK","tc.play.text":"Bracket","confirm":"Confirm","thingsHaveChanged":"As you may notice, things have definitely changed","earnings":"Earnings","hide":"Hide","preferences.sport_labels.10":"MLB","favorites.tooManyTeamsToAdd":"Maximum favourite teams limit reached. Please remove at least one team prior to adding additional teams.","draftcast.emptyTable":"No players are available for this position.","addSomeForQuickAccess":"Add some for quick access","draftcast.pickIsIn":"The Pick is In...","preferences.sport_labels.90":"NHL","purse":"Purse","removedFromYourFavorites":"<p>You've removed<\/p><h1>${title}<\/h1>${subTitle}<p>as a suggested favourite<\/p>","register":"Register","position.abbrev":"POS","submit.mobile.filters":"submit","preferences.sport_labels.1650":"Wrestling","draftcast.nextPick":"Next Pick","cricinfo.footerText":"ESPN Sports Media Ltd. <a href=\"http://disneytermsofuse.com/\" rel=\"nofollow\">Terms of Use<\/a>, <a href=\"http://disneytermsofuse.com/\" rel=\"nofollow\">Privacy Policy<\/a>, <a href=\"https://disneyprivacycenter.com/notice-to-california-residents/\" rel=\"nofollw\">Your California Privacy Rights<\/a>, <a href=\"https://disneyprivacycenter.com/kids-privacy-policy/english/\" rel=\"nofollow\">Children's Online Privacy Policy<\/a> and <a href=\"http://preferences-mgr.truste.com/?pid=disney01&aid=espnemea01&type=espnemea\" rel=\"nofollow\">Interest-Based Ads<\/a> are applicable to you. All rights reserved.","addMoreFavorites":"Try adding more teams for the latest scores and highlights!","preferences.sport_labels.200":"Cricket","addfavorite":"Add Favourite","video.messages.geoRestricted":"Video is not available in your country.","inprogress":"In Progress","preferences.sport_labels.28":"NFL","preferences.sport_labels.600":"Football","preferences.sport_labels.606":"Football","videoDockingDisabled":"Video docking disabled","preferences.sport_labels.23":"NCAAF","newsletters":"Newsletters","preferences.sport_labels.1652":"WWE","draftcast.needs":"Needs","draftcast.predraftAnalysisHeadline":"What He Brings","activateInsider":"Subscribe","add":"Add","filter.mobile.filters":"filter","preferences.sport_labels.5501":"FIFA Club World Cup","draftcast.selectionMade":"Selection Made","pageTitle.Scores_%{leagueOrSport}":"${leagueOrSport} Scores","manageMy":"Manage my","onefeed.draft":"Draft","onefeed.insider.manage":"Manage","preferences.sport_labels.33":"CFL","pop-out":"Pop-out","favoritesmgmt.sportTeam":"${sportLabel} Team","favoritesmgmt.suggestedHeaderReset":"Suggestions","preferences.sport_labels.1700":"Track and Field","favoritesmgmt.alertType":"Alert Type","tc.view.text":"VIEW","preferences.sport_labels.1300":"Cycling","favoritesmgmt.noSuggestedFavorites":"Additional Suggested Favourites are not available at this time","favorites":"Favourites","favoritesmgmt.noFavorites":"You have not chosen any favourites yet","no":"No","reset.mobile.filters":"reset","footerText":"ESPN Sports Media Ltd. <a href=\"http://disneytermsofuse.com/\" rel=\"nofollow\">Terms of Use<\/a>, <a href=\"http://disneyprivacycenter.com/\" rel=\"nofollow\">Privacy Policy<\/a>, <a href=\"https://disneyprivacycenter.com/notice-to-california-residents/\" rel=\"nofollow\">Your California Privacy Rights<\/a>, <a href=\"https://disneyprivacycenter.com/kids-privacy-policy/english/\">Children's Online Privacy Policy<\/a> and <a href=\"http://preferences-mgr.truste.com/?type=espn&affiliateId=148\">Interest-Based Ads<\/a> are applicable to you. All rights reserved.<\/span><span class=\"link-text-short\">Footer<\/span>","preferences.sport_labels.2040":"IndyCar","scores":"Scores","preferences.sport_labels.8300":"College Sports","show":"Show","manageFavoritesSignIn":"To manage favorites please sign-in or create an ESPN account","noTeamsInFavorites":"No teams in your favourites yet","preferences.sport_labels.46":"NBA","remove":"Remove","viewall":"View All","video.messages.deviceRestricted":"Video is not available for this device.","undo":"Undo","accountInformation":"Account Information","alert":"Alert","preferences.sport_labels.41":"NCAAM","today":"Today","onefeed.suggested":"Suggested Favourites","preferences.sport_labels.1000":"Boxing","soccer":"Football","move":"Move","preferences.sport_labels.3301":"MMA","season.mobile.filters":"season","comments":"Comments","sports":"Sports","year.mobile.filters":"year","subscribe":"Subscribe","preferences.sport_labels.850":"Tennis","yes":"Yes","addFavorites":"Add favourites","tweet":"Tweet","preferences.sport_labels.59":"WNBA","heliumdown":"Login Temporarily Unavailable","pts":"Pts","home":"Home","favoritesmgmt.reorderSports":"Reorder Sports","links.team.clubhouse.desktop.href.cricket":"http://www.espn.in/cricket/team/_/id/${team.id}/${_slug(team.name)}","suggested":"Suggested","preferences.sport_labels.54":"NCAAW","favorites.draftingNow":"Drafting Now","signIn":"Log In","draftcast.bestFit":"Best Fit","opponent.abbrev":"OPP","resize":"Resize","disableVideoDockingPermanently":"Disable video docking permanently","over/under.abbrev":"O/U","welcomeToESPN":"Welcome to the new ESPN.com","preferences.sport_labels.8319":"Snooker","preferences.sport_labels.3700":"Olympic Sports","preferences.sport_labels.8318":"Darts"};
+					if(Object.keys(translations).length > 0) {
+						espn.i18n.translations = translations;
+					}
+				} catch (err) {
+					window.console.log('Error in espn.i18n loading translations', err);
+				}
+
+				espn.i18n.dateTime = {
+					dateFormats: {
+						time1: "h:mm A",
+						date1: "D MMM, YYYY",
+						date2: "D/M/YYYY",
+						date3: "DD/MM/YYYY",
+						date4: "DDMMYYYY",
+						date5: "Do MMMM YYYY",
+						date6: "dddd, Do MMMM YYYY",
+						date7: "ddd, D MMM YYYY",
+						date8: "D/M",
+						date9: "ddd",
+						date10: "dddd, MMMM Do",
+						date11: "ddd, MMMM D",
+						date12: "D MMMM YYYY",
+						date13: "dddd, D/M",
+						date14: "MMM D",
+						date15: "ddd, D/M"
+
+					},
+
+					
+					firstDayOfWeek: "Sunday",
+					timeZoneBucket: "Asia/Kolkata",
+					dayNamesShort: ["Su","Mo","Tu","We","Th","Fr","Sa"],dayNamesMedium: ["Sun","Mon","Tues","Wed","Thu","Fri","Sat"],
+
+dayNamesLong: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+
+monthNamesShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+
+monthNamesLong: ["January","February","March","April","May","June","July","August","September","October","November","December"]
+				};
+				

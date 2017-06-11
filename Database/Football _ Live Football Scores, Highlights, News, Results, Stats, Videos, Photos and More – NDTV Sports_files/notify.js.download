@@ -1,0 +1,546 @@
+﻿'use strict';
+
+function get_browser_info() {
+    var ua = navigator.userAgent, tem, M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [], d = 'desktop', OSName = 'unknown-os';
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
+        d = 'mobile';
+    }
+    if (navigator.appVersion.indexOf("Win") != -1)
+        OSName = "windows";
+    if (navigator.appVersion.indexOf("Mac") != -1)
+        OSName = "mac";
+    if (navigator.appVersion.indexOf("X11") != -1)
+        OSName = "unix";
+    if (navigator.appVersion.indexOf("Linux") != -1)
+        OSName = "linux";
+    if (/trident/i.test(M[1])) {
+        tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+        return { name: 'ie', version: (tem[1] || ''), device: d, os: OSName };
+    }
+    if (M[1] === 'Chrome') {
+        tem = ua.match(/\bOPR\/(\d+)/)
+        if (tem != null) {
+            return { name: 'opera', version: tem[1], device: d, os: OSName };
+        }
+    }
+    M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+    if ((tem = ua.match(/version\/(\d+)/i)) != null) {
+        M.splice(1, 1, tem[1]);
+    }
+    return { name: M[0].toLowerCase(), version: M[1], device: d, os: OSName };
+}
+
+var __browserInfo = get_browser_info();
+
+function isSupportedNotification() {
+    if (((__browserInfo.name == 'chrome' && __browserInfo.version >= 43) || (__browserInfo.device != 'mobile' && __browserInfo.name == 'firefox' && __browserInfo.version >= 44))) {
+        return true;
+    }
+    $('._navnotify').hide();
+    return false;
+
+}
+
+
+//var __cname = 'ndtvcricket_alerts_ipl';
+//var __matchid = '';
+//var __cday = 5;
+
+
+var base_url = 'https://sports.ndtv.com/';
+var unsubscribe = '';
+var settings = '';
+var sections = '', constID = '';
+var matchid = '';// querySt('matchid') || '';
+var teams = '';//querySt('teams') || '';
+var unsubscribe = '';// querySt('unsubscribe') || '';
+var ndtv = '';//querySt('__test') || 'no';
+var site = 'cricket';
+//var __cname = site + '_isSubscribed';
+var __cname = '_isPushEnabled_elex_v1_' + site;
+var parentsite = document.referrer || 'https://sports.ndtv.com/';
+parentsite = parentsite + ((parentsite.indexOf('?') > -1) ? '&' : '?') + 'browserpush=true';
+
+//if (ndtv == 'yes') { parentsite = ''; }
+var usermsg = 'Hey, you are not subscribed.<a href="javascript:void(0);" onclick="__showSubscribePopup();"> Click here to subscribe Now <a>.';
+var usermsg_un = 'You are already subscribed.<a href="javascript:void(0);" onclick="unSubscribe();"> Click here to Unsubscribe<a/>.';
+var usermsg_re = 'You have successfully completed your subscription? To re-subscribe <a href="javascript:void(0);" onclick="__showSubscribePopup();">Click here</a>';
+var regObj = '';
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(base_url + 'sw.js?v1=' + new Date().getUTCFullYear() + "" + new Date().getUTCMonth() + "" + parseInt(new Date().getUTCDate() / 5), { scope: base_url })
+        .catch(function (error) {
+            printMsg('<span style="color:#D67C7C;">Your browser is not supporting this feature, please get chrome (42+) or firefox (44+) </span>' + error)
+        });
+} else {
+    printMsg('Service workers aren\'t supported in this browser.');
+    redirectToParent(2000);
+}
+
+//show setting bell
+ndtvUnsubscribeButton();
+checkSetup('');
+
+//function swFunction() {
+//    if ('serviceWorker' in navigator) {
+//        /*console.log('Service Worker is supported');*/
+//        navigator.serviceWorker.register('/nstatic/content/js/sw.js').then(function () {
+//            return navigator.serviceWorker.ready;
+//        }).then(function (reg) {
+//            if (Notification.permission == 'default') {
+//                overlayAction('block');
+//            }
+//            reg.pushManager.subscribe({
+//                userVisibleOnly: true
+//            }).then(function (sub) {
+//                regObj = reg;
+//                if (Notification.permission == 'granted' && document.getElementById('ndtvnotify')) {
+//                    overlayAction('none');
+//                }
+//               console.log('endpoint:', sub.endpoint);
+//                /*console.log(cval +'=='+ matchid);*/
+//                var ep = getEndPoint(sub);
+//                if (unsubscribe == '') {
+//                    onRegisterNotify(reg);
+//                    subscribeNow(ep, '');
+//                } else {
+//                    subscribeNow(ep, '1');
+//                }
+//            }).catch(function (error) {
+//                if (Notification.permission == 'denied') {
+//                    overlayAction('none');
+//                    printMsg('<span style="color:#D67C7C;">You have blocked notifications for this site.</span><br/><span style="color:#7ADA10;">Fix: Please click <img style="position:relative;top:3px;" src="images/help.png" alt="Green Icon in address bar" title="Green Icon in address bar"/> and allow notification permission and refresh this page.</span>')
+//                    //redirectToParent(20000);
+//                }
+//            })
+//        }).catch(function (error) {
+//            printMsg('Your browser is not supporting this feature, please get chrome (42+) or firefox (44+)')
+//        });
+//    }
+//}
+
+function checkSetup(passconstID) {
+    constID = sections = passconstID;
+    if (!isSupportedNotification()) {
+        return false;
+    }
+    var check = getCookieVal(__cname) || '';
+    if (check == '' || passconstID != '') {
+        __showSubscribePopup();
+        return false;
+    }
+    //refresh the notification subscription if you want
+    if (Notification.permission == 'granted' || (check == 'yes' && Notification.permission == 'default')) {
+        //initialiseState();
+    }
+}
+
+function initialiseState() {
+
+    if (!('showNotification' in ServiceWorkerRegistration.prototype)) {
+        printMsg('Notifications aren\'t supported.');
+        return false;
+    }
+    if (Notification.permission == 'granted') {
+        //already registered or not allowed
+        //printMsg(usermsg_un);
+        //return false;
+    }
+
+    if (Notification.permission == 'default' && settings == '') {
+        overlayAction('block');
+    }
+
+    if (Notification.permission === 'denied') {
+        overlayAction('none');
+        printMsg('<span style="color:#D67C7C;">You have blocked notifications for this site.</span><br/><span style="color:#7ADA10;">Fix: Please allow notification permission and refresh this page.</span>');
+    }
+
+    if (!('PushManager' in window)) {
+        overlayAction('none');
+        printMsg('Push messaging isn\'t supported.');
+        redirectToParent(2000);
+        return;
+    }
+
+    navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
+        // Do we already have a push message subscription?  
+        serviceWorkerRegistration.pushManager.getSubscription()
+                .then(function (subscription) {
+                    console.log(subscription);
+                    var msg = '';
+                    if (!subscription) {
+                        // We aren't subscribed to push, so set UI
+                        subscribe('');
+                        return true;
+                    }
+                    var ep = getEndPoint(subscription);
+                    subscribeNow(ep, '');                  
+                    if (_ismatch == 'yes')
+                    {
+                        printMsg(usermsg_match);
+                        //ndtvCloseThis(365, 'yes');
+                    }
+                    else
+                    {
+                        printMsg(usermsg_un);
+                        ndtvCloseThis(365, 'yes');
+                    }
+                   
+                })
+                .catch(function (err) {
+                    printMsg('Error during getSubscription()', err);
+                    window.location.reload();
+                    return;
+                });
+    }).catch(function (error) {
+        printMsg('<span style="color:#D67C7C;">Your browser is not supporting this feature, please get chrome (42+) or firefox (44+) </span>' + error);
+    });
+}
+
+
+function unSubscribe() {
+    navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
+        // To unsubscribe from push messaging, you need get the  
+        // subscription object, which you can call unsubscribe() on.  
+        serviceWorkerRegistration.pushManager.getSubscription().then(
+                function (subscription) {
+                    // Check we have a subscription to unsubscribe  
+                    if (!subscription) {
+                        printMsg(usermsg_re);
+                        ndtvCloseThis(1, '');
+                        return;
+                    }
+
+                    var ep = getEndPoint(subscription);
+                    subscribeNow(ep, 1);
+                    subscription.unsubscribe().then(function (successful) {
+                        printMsg(usermsg_re);
+                        ndtvCloseThis(1, '');
+                    }).catch(function (e) {
+                        printMsg('Error during getSubscription()', e);
+                        window.location.reload();
+                        return;
+                    });
+                }).catch(function (e) {
+                    printMsg('Error thrown while unsubscribing from push messaging.', e);
+                    window.location.reload();
+                    return;
+                });
+    });
+}
+
+function subscribe(old) {
+    if (Notification.permission == 'default') {
+        overlayAction('block');
+    }
+    if (Notification.permission == 'granted') {
+        overlayAction('none');
+    }
+    navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
+        serviceWorkerRegistration.pushManager.subscribe({ userVisibleOnly: true })
+                .then(function (subscription) {
+                    var ep = getEndPoint(subscription);
+                    if (settings == '' || old == '1') {
+                        onRegisterNotify(serviceWorkerRegistration);
+                    }
+                    overlayAction('none');
+                    subscribeNow(ep, '');
+                    printMsg(usermsg_un);
+                    ndtvCloseThis(365, 'yes');
+                    return true;
+                })
+                .catch(function (e) {
+                    if (Notification.permission === 'denied') {
+                        overlayAction('none');
+                        printMsg('<span style="color:#D67C7C;">You have blocked notifications for this site.</span><br/><span style="color:#7ADA10;">Fix: Please allow notification permission and refresh this page.</span>');
+                    } else {
+                        overlayAction('none');
+                        printMsg('<span style="color:#D67C7C;">Something wrong hapenned, please refresh the page to try again.</span>');
+                    }
+                });
+    });
+
+
+}
+
+
+function overlayAction(type) {
+    if (document.getElementById('ndtvnotify') && (type == 'block' || type == 'none')) {
+        document.getElementById('ndtvnotify').style.display = type;
+    }
+}
+
+function redirectToParent(time) {
+    return false;
+    if (parentsite != '') {
+        setTimeout(function () {
+            location.href = parentsite;
+        }, time);
+    }
+}
+
+function getEndPoint(pushSubscription) {
+    if (pushSubscription.subscriptionId) {
+        return pushSubscription.subscriptionId;
+    }
+    var endpoint = 'https://android.googleapis.com/gcm/send/';
+    var parts = pushSubscription.endpoint.split(endpoint);
+    if (parts.length > 1) {
+        return {
+            'browser': 'chrome',
+            'id': parts[1]
+        };
+    }
+    endpoint = 'https://updates.push.services.mozilla.com/push/';
+    parts = pushSubscription.endpoint.split(endpoint);
+    if (parts.length > 1) {
+        return {
+            'browser': 'firefox',
+            'id': parts[1]
+        };
+    }
+
+    endpoint = 'https://updates.push.services.mozilla.com/wpush/';
+    parts = pushSubscription.endpoint.split(endpoint);
+    if (parts.length > 1) {
+        return {
+            'browser': 'firefox',
+            'id': parts[1]
+        };
+    }
+
+    return '';
+}
+
+
+function subscribeNow(registrationDetail, unregister) {
+    if (!registrationDetail) { return; }
+    /*console.log(registrationDetail);*/
+    var ep = 'https://ipush.apps.ndtv.com/subscribeCricketChrome.php';
+    /*var ep = 'http://localhost/ndtvapps/pushnotification/public/subscribeCricketChrome.php';*/
+
+    var msg = 'Processing, please wait ... ';
+    printMsg(msg);
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: ep,
+        data: {
+            'packageName': 'cricket.' + registrationDetail.browser,
+            'env': 'PRODUCTION',
+            'matchid': matchid,
+            'teams': teams,
+            'unregister': unregister,
+            'registration_id': registrationDetail.id
+        },
+        complete: function (data) {
+            //var msg = 'You have successfully ' + (unregister != '' ? 'Un-subscribed' : 'subscribed');
+            //msg += (unregister != '') ? ' <a style="color:#7ADA10;" href="javascript:void(0);" onclick="subscribeNowFull(\'' + registrationDetail.browser + '\', \'' + registrationDetail.id + '\',\'\');">Click here to subscribe again</a>' : '';
+            //printMsg(msg);
+
+            //console.log(__cname + '==' + matchid + '==' + un_matchid)
+            //if (parentsite != '') {
+            //    var time = unregister == '' ? 0 : 3000;
+            //    redirectToParent(time);
+            //}
+
+        }
+    });
+
+    //var obj = { 'id': matchid };
+    //Storageinfo(obj);
+
+}
+
+//function Storageinfo(obj) {
+
+//    localStorage.setItem('MatchObject', JSON.stringify(obj));
+//    var retrievedObject = localStorage.getItem('MatchObject');
+//}
+
+
+function printMsg(msg) {
+    $('.popover-content').html('<div style="color:#3410b3;text-align: right;padding-bottom: 5px;">Close [X]</div>' + msg);
+    $('.popover').show();
+    //if (document.getElementById('msg')) {
+    //    document.getElementById('msg').innerHTML = msg;
+    //}
+}
+
+function onRegisterNotify(reg) {
+    try {
+        var notification = reg.showNotification('NDTV Cricket', {
+            body: 'Thanks you for subscribing to Cricket match alerts. You will receive alerts when match is live.',
+            icon: 'https://cricketndtv.com/images/logo.png',
+            vibrate: [300, 100, 400], // Vibrate 300ms, pause 100ms, then vibrate 400ms
+            tag: 'ndtvcricket-welcome',
+            data: {
+                url: 'http://sports.ndtv.com/cricket/live-scores?browserpush'
+            }
+        });
+        notification.onclick = function (event) {
+            event.target.close();
+            window.location.href = event.target.data.url;
+            return;
+        };
+    } catch (err) {/*log this error alert(err.message)*/ }
+}
+
+function setCookieVal(c_name, value, exdays) {
+    var current = new Date();
+    var exdate = new Date(current.getTime() + 86400000 * exdays);
+    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString() + ';path=/;');
+    document.cookie = c_name + "=" + c_value;
+}
+
+
+function getCookieVal(c_name) {
+    var i, x, y, ARRcookies = document.cookie.split(";");
+    for (i = 0; i < ARRcookies.length; i++) {
+        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g, "");
+        if (x == c_name) {
+            return unescape(y);
+        }
+    }
+    return '';
+}
+
+
+function __showSubscribePopup() {
+    var id = document.getElementById('___ndtvpushdiv');
+    if (id) {
+        id.innerHTML = '<style>.noti_bgstyle{width:100%;height:100%;position:fixed;left:0;top:0;z-index:15010000;background:rgba(0,0,0,.8);opacity:.95;filter:alpha(opacity=95)}.noti_wrap{z-index:2147483647;left:50%;top:0;position:fixed;width:400px;margin-left:-200px;box-sizing:border-box;padding:12px;background:#fff;font-family:Roboto,sans-serif;-moz-box-shadow:1px 1px 1px 0 #c9c9c9;-webkit-box-shadow:1px 1px 1px 0 #c9c9c9;box-shadow:1px 1px 1px 0 #c9c9c9;border:1px solid #e8e8e8}.notif_box{display:table;margin-top:10px}.noti_wrap .noti_img{width:65px;height:65px;float:left;margin:0 10px 0 0}.noti_wrap .noti_cont{display:table-cell;vertical-align:top}.noti_wrap .noti_cont h2{font-size:14px;margin:0;font-weight:600;line-height:18px}.noti_wrap .noti_cont .botinfo{font-size:12px;font-weight:400;padding:5px 0;line-height:18px;color:#666}.noti_wrap .noti_btnwrap{text-align:right;padding:10px 0 0;clear:both}.noti_btnwrap a.allow,.noti_btnwrap a.notnow{width:auto;padding:4px 15px;background:#fff;line-height:20px;border:1px solid #ccc;font-size:11px;color:#333;text-decoration:none;text-transform:uppercase;border-radius:3px;margin:0 0 0 10px}.noti_btnwrap a.notnow{border:none;border-radius:none;text-transform:none;text-decoration:underline;font-size:12px}.noti_btnwrap a.allow:hover{color:#fff;-moz-transition:background .3s ease-in;-o-transition:background .3s ease-in;-webkit-transition:background .3s ease-in;background:#4FACEF;border:1px solid #4B84AD}.noti_btnwrap a.active{background:#b40002;color:#fff;border:1px solid #b40002}.noti_wrap .teaminfo{font-size:12px}.noti_wrap h3{color:#184b80;margin-top: 10px; margin-bottom: 10px;}.noti_wrap h2 span,.noti_wrap h3 span{color:#4a9400}.noti_wrap li{padding-bottom:2px} .noti_wrap input[type="checkbox"]{margin:4px;}@media only screen and (max-device-width:480px){.noti_wrap{width:300px;margin-left:-150px}}</style>';
+        id.innerHTML += '<div id="__cricketsubscribe"><div class="noti_bgstyle"></div><div class="noti_wrap"> <div class="notif_box"> <div class="noti_img"><img width="65" height="65" style="border-radius:5px;" src="data:image/png;base64,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"></div><div class="noti_cont"> <h2>Get <span>CRICKET</span> Match Alerts From NDTV Cricket.</h2> <div class="botinfo">Alerts will appear in your browser. To turn them off go to your browser settings.</div></div></div><div class="teaminfo"> <h3>Get alerts for your <span>Favourite Teams</span></h3> <ul style="float: left; list-style: outside none none; margin: 0px; padding: 0px; width: 50%;"> <li> <label><input type="checkbox" value="1" name="__s">Australia</label> </li><li> <label><input type="checkbox" value="2" name="__s">Bangladesh</label> </li><li> <label><input type="checkbox" value="3" name="__s">England</label> </li><li> <label><input type="checkbox" value="4" name="__s" checked>India</label> </li></ul> <ul style="float: left; margin: 0px; padding: 0px; list-style: outside none none;"><li> <label><input type="checkbox" value="5" name="__s">New Zealand</label> </li><li> <label><input type="checkbox" value="6" name="__s">Pakistan</label> </li><li> <label><input type="checkbox" value="7" name="__s">South Africa</label> </li><li> <label><input type="checkbox" value="8" name="__s">Sri Lanka</label> </li></ul> </div><div class="noti_btnwrap"><span id="__emsg" style="color:red;font-size:12px;"></span><a class="notnow" onclick="ndtvCloseThis();" href="javascript:void(0);">Not Now</a> <a class="allow" onclick="__alw();" href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> </div></div></div>';
+    }
+}
+
+function ndtvCloseThis(cday, val) {
+    setCookieVal(__cname, val, cday);
+    if (document.getElementById('__cricketsubscribe')) {
+        document.getElementById('__cricketsubscribe').style.display = 'none';
+    }
+}
+
+function __getcheckboxes() {
+    var checkboxes = document.getElementsByName('__s');
+    var vals = "";
+    for (var i = 0, n = checkboxes.length; i < n; i++) {
+        if (checkboxes[i].checked) {
+            vals += "," + checkboxes[i].value;
+        }
+    }
+    if (vals) vals = vals.substring(1);
+    return vals;
+}
+
+var _isalready = true;
+var _ismatch = "";
+var usermsg_match = "";
+function __alwmatch(mid, matchname) {
+    usermsg_match = 'Thanks for You subscribing for ' + matchname + ' match notifications.';
+    var usermsg_alredy = 'You are already subscribed for ' + matchname + '.';
+    matchid = mid;
+    var check = getCookieVal("_spt_notify");
+    var arrMatchId = check.split(',');
+    arrMatchId.forEach(function (i, n) {       
+        if (i == matchid) {
+            _isalready = false;
+            
+        }
+    });
+
+    if (_isalready) {
+        setCookieVal("_spt_notify", check != "" ? check + ',' + matchid : matchid, 50);
+        _ismatch = "yes";
+        initialiseState();
+        
+    }
+    else {
+        printMsg(usermsg_alredy)        
+    }
+    return false;
+}
+
+function __alw() {
+    document.getElementById('__emsg').innerHTML = '';
+    teams = __getcheckboxes();
+
+    if (teams == '') {
+        document.getElementById('__emsg').innerHTML = 'Please choose your team';
+        return false;
+    }
+    ndtvCloseThis(30, 'yes');
+    initialiseState();
+    // teams = teams;
+    //setTimeout(function () { swFunction(); }, 5);
+
+    //setTimeout(function(){location.href = 'https://cricketndtv.com/?pfram=sports.ndtv&teams=' + teams;},5);    
+    return false;
+}
+
+//function ndtvCloseThis(){
+//    setCookieVal(__cname,'yup',__cday);
+//    document.getElementById('__cricketsubscribe').style.display='none';
+//}
+
+function ndtvUnsubscribeButton() {
+    if (isSupportedNotification()) {
+        var id = document.getElementById('___ndtvspldiv');
+        var msg = getCookieVal(__cname) == 'yes' ? usermsg_un : usermsg;
+        msg = (Notification.permission === 'denied') ? 'You have blocked notifications in browser settings. Please unblock him. Tip: Please allow notification permission and refresh this page.' : msg
+        if (id) {
+            var msgdispl = (window.location.href.indexOf('settings=1') > -1) ? 'block' : 'none';
+            //if (___page == 'wap') {
+            //    id.innerHTML = '<style>#___ndtvspldiv{display:table-cell;width:32px;}.popover {text-transform:none;font-size: 14px;font-style: normal;font-weight: 400;letter-spacing: normal;background-color: #f64646;border-radius: 6px;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);width: 200px;padding: 1px;right:-26px;top: 44px;position: absolute;z-index: 100060;color:#FFF;}.popover-content{cursor:pointer;padding: 10px;text-align:center;font-size: 12px;}.popover > .arrow, .popover > .arrow::after {border-color: transparent;border-style: solid;display: block;height: 0;position: absolute;width: 0;}.popover > .arrow {border-width: 11px;border-bottom-color: #CCC;border-top-width: 0;left: 50%;margin-left: 44px;top: -11px;}.popover > .arrow::after {border-width: 10px;border-bottom-color: #f64646;border-top-width: 0;content: " ";margin-left: -10px;top: 1px;}</style>';
+            //    id.innerHTML += '<div class="notify_bell" style="position:relative;"><a href="https://alerts.ndtv.com/?settings=1" title="Breaking News Alerts"><img src="https://drop.ndtv.com/ndtv/images/alarm.png"/></a><div class="popover" style="display: none;" onclick="this.style.display=\'none\';"><div class="arrow" style="left: 50%;"></div><div class="popover-content"><div style="color:#3410b3;text-align: right;padding-bottom: 5px;">Close [X]</div>You can manage your notification subscription by clicking above bell.</div></div></div>';
+            //} else { <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUyNS4xNTMgNTI1LjE1MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTI1LjE1MyA1MjUuMTUzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnPgoJPHBhdGggZD0iTTEzOS4xNjUsNTEuNDIxbC0zNS43NzYtMzUuODY0QzQzLjQxMyw2MS4yMDIsMy43NDIsMTMyLjE4NSwwLDIxMi40MDJoNTAuMTc0ICAgQzUzLjkxNiwxNDUuOTkyLDg4LjA1MSw4Ny43NjYsMTM5LjE2NSw1MS40MjF6IE00NzQuOTc5LDIxMi40MDJoNTAuMTc0Yy0zLjc0Mi04MC4yMTctNDMuNDEzLTE1MS4yLTEwMy41ODYtMTk2Ljg0NSAgIGwtMzUuODYzLDM1Ljg2NEM0MzcuMTAyLDg3Ljc2Niw0NzEuMjM3LDE0NS45OTIsNDc0Ljk3OSwyMTIuNDAyeiBNNDI1LjU5MiwyMjQuOTg0YzAtNzctNTMuMzkxLTE0MS40NjMtMTI1LjQyNC0xNTguNDg3VjQ5LjQwOCAgIGMwLTIwLjc4Ny0xNi43NjEtMzcuNjE0LTM3LjU5Mi0zNy42MTRzLTM3LjU5MiwxNi44MjctMzcuNTkyLDM3LjYxNHYxNy4wODlDMTUyLjk1MSw4My41MjEsOTkuNTYsMTQ4LjAwNSw5OS41NiwyMjQuOTg0djEzNy45MTggICBsLTUwLjE1Miw1MC4xMDh2MjUuMDc2aDQyNi4zMzZ2LTI1LjA3NmwtNTAuMTUyLTUwLjEwOEM0MjUuNTkyLDM2Mi45MDIsNDI1LjU5MiwyMjQuOTg0LDQyNS41OTIsMjI0Ljk4NHogTTI2Mi41NzYsNTEzLjM1OCAgIGMzLjUyMywwLDYuNzYxLTAuMjE5LDEwLjA2NS0xLjAwN2MxNi4yMzYtMy4yMzgsMjkuODI0LTE0LjUyOSwzNi4wNi0yOS42MjdjMi41MTYtNS45NTIsNC4wNDgtMTIuNDk0LDQuMDQ4LTE5LjU0SDIxMi40MDIgICBDMjEyLjQwMiw0OTAuNzc3LDIzNC45ODQsNTEzLjM1OCwyNjIuNTc2LDUxMy4zNTh6IiBmaWxsPSIjRDgwMDI3Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+            id.innerHTML = '<style>.popover a{color:#2d21e0;}.topnav2014 .comments{position:relative;}.popover {text-transform:none;font-size: 14px;font-style: normal;font-weight: 400;letter-spacing: normal;background-color: #fff;border-radius: 6px;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);max-width: 200px;padding: 1px;left:-92px;top: 30px;position: absolute;z-index: 100060;color:#000;width:200px;}.popover-content{cursor:pointer;padding: 0px 5px 10px 5px;text-align:center;font-size: 12px;}.popover > .arrow, .popover > .arrow::after {border-color: transparent;border-style: solid;display: block;height: 0;position: absolute;width: 0;}.popover > .arrow {border-width: 11px;border-bottom-color: #fff;border-top-width: 0;left: 50%;margin-left: -11px;top: -11px;}.popover > .arrow::after {border-width: 10px;border-bottom-color: #fff;border-top-width: 0;content: " ";margin-left: -10px;top: 1px;}.fbmsginner{position:relative;}</style>';
+            id.innerHTML += '<span class="fbmsginner" style="padding-right:5px;"><a class="break_fbmsg" href="javascript:void(0);" onclick="$(\'.popover\').toggle();" title="Breaking Match Alerts"><img src="data:image/false;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAWCAYAAAAmaHdCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkUwOTAzM0UxMDk0MTFFN0IzOURFNTc3RTM2NUQ4N0EiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkUwOTAzM0YxMDk0MTFFN0IzOURFNTc3RTM2NUQ4N0EiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGRTA5MDMzQzEwOTQxMUU3QjM5REU1NzdFMzY1RDg3QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGRTA5MDMzRDEwOTQxMUU3QjM5REU1NzdFMzY1RDg3QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjDrh7UAAAD8SURBVHjazJQ9DoIwGIYL4s+gqwTj6OYJXF29hbs4yhEcCMfxJsbEI+gkcUKhvjUfsdYWSzTGL3lCU9on+d4WXM45+xSXfaF+IpmDCz1rS1ogAGPg0TOg+dfSBNUGEX9ULo0jev+0RxU0QagIckUU0jqjZAhSjUAWpbTOeMSi/57o0pAVp/eeTbC8zrwqySyvRlYl8S0lvkki+owtJbGciyxJwBQUbwQFrUvKCed+ztVhVpXDlKOagT7JcnBWxGJDFzRofJBzKGsjjUdgDTokFG1fwQrsmeZy6UpsnoABZSAkR5q3/op3YAFOJBGtLcFWG4wU7H//2azqJsAAXTEIUETgoHUAAAAASUVORK5CYII=" /></a><div class="popover" style="display:' + msgdispl + ';" onclick="this.style.display=\'none\';"><div class="arrow" style="left: 50%;"></div><div class="popover-content"><div style="color:#3410b3;text-align: right;padding-bottom: 5px;">Close [X]</div>' + msg + '</div></div></span>';
+            //}
+        }
+    }
+}
+
+
+function subscribeNowFull(browser, id, unregister) {
+    var ep = {
+        browser: browser,
+        id: id
+    };
+    subscribeNow(ep, unregister);
+    if (regObj != '') {
+        onRegisterNotify(regObj);
+    }
+}
+
+
+//function ndtvUnsubscribeButton(){
+//    if(((browser.name == 'chrome' && browser.version >= 43) || (browser.device != 'mobile' && browser.name == 'firefox' && browser.version >= 44))){
+//        var id = document.getElementById('___ndtvspldiv');
+//        if(id){
+//            id.innerHTML = '<style>.button_match_unsub{width:auto; float:right;height:25px;}.match_alerts {background: #077db4;color: #ffffff;font-size: 14px;padding: 8px 20px 7px 20px;text-decoration: none;text-transform: uppercase;font-weight: 600;}.unsub_btn {background: #1d1d1d;color: #fff;font-size: 14px;padding: 8px 20px 7px 20px;text-decoration: none;text-transform: uppercase;font-weight: 600;}.match_alerts:hover {background: #00aeff;text-decoration: none;}.unsub_btn:hover {background: #666666;text-decoration: none;}</style>';
+//            id.innerHTML += '<div class="button_match_unsub"><a href="javascript:void(0);" onclick="__showSubscribePopup();" class="match_alerts">Get Match Alerts</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="location.href=\'http://localhost:50410/?unsubscribe=yes&pfram=sports.ndtv&matchid=\';" class="unsub_btn">Unsubscribe</a></div>';
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
