@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, url_for, jsonify, render_template
 from multiprocessing import Process, Queue
 from multiprocessing.pool import ThreadPool
+from bs4 import BeautifulSoup
 from urllib2 import urlopen
 import json
 
@@ -43,5 +44,8 @@ def fetch_page(url):
         return {'url': url, 'page': response.read(), 'error': None}
     except Exception as e:
         return {'url': url, 'page': None, 'error': e}
+
+
+
 
 app.run(debug=True)
